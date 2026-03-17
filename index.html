@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>AppFactory Chile by D&amp;H | Desarrollo de aplicaciones móviles</title>
+  <title>AppFactory Chile by D&amp;H | Desarrollo de aplicaciones móviles y plataformas web</title>
 
   <meta
     name="description"
-    content="Desarrollo profesional de aplicaciones móviles y plataformas web para empresas y emprendedores en Chile. Soluciones a medida respaldadas por D&H."
+    content="Desarrollo profesional de aplicaciones móviles, paneles administrativos y plataformas web para empresas, pymes y emprendedores en Chile. Soluciones tecnológicas a medida respaldadas por D&H."
   />
 
   <meta name="theme-color" content="#0A6CFF" />
@@ -16,13 +16,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Fondo tecnológico / decorativo -->
+  <div class="site-bg" aria-hidden="true">
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-circuits"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+    <div class="floating-window fw-1"></div>
+    <div class="floating-window fw-2"></div>
+    <div class="floating-window fw-3"></div>
+  </div>
 
   <header class="main-header">
     <div class="container header-inner">
@@ -34,13 +47,18 @@
 
         <div class="brand-copy">
           <strong>AppFactory Chile</strong>
-          <span>Desarrollo de apps y plataformas · Respaldado por D&amp;H</span>
+          <span>Apps, plataformas y automatización · Respaldado por D&amp;H</span>
         </div>
       </a>
 
+      <nav class="header-nav" aria-label="Principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#soluciones">Soluciones</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#precios">Precios</a>
+      </nav>
+
       <div class="header-actions">
-        <a href="#servicios" class="btn btn-secondary">Servicios</a>
-        <a href="#precios" class="btn btn-secondary">Precios</a>
         <a
           href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20una%20aplicaci%C3%B3n%20para%20mi%20negocio."
           class="btn btn-primary"
@@ -54,279 +72,452 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
+  <main>
 
-    <div class="container hero-grid">
+    <section class="hero">
+      <div class="container hero-grid">
 
-      <div class="hero-left">
-        <div class="hero-kicker">Aplicaciones móviles · Paneles web · Soluciones a medida</div>
-
-        <h1>
-          Desarrollamos apps
-          <span class="accent">para negocios que quieren crecer</span>
-        </h1>
-
-        <p>
-          Creamos aplicaciones móviles y plataformas web con enfoque profesional,
-          comercial y operativo. Ayudamos a empresas, pymes y emprendedores a vender más,
-          automatizar procesos y digitalizar su operación con soluciones hechas a medida.
-        </p>
-
-        <div class="hero-actions">
-          <a
-            href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20una%20aplicaci%C3%B3n%20para%20mi%20negocio."
-            class="btn btn-primary"
-            target="_blank"
-            rel="noopener"
-          >
-            Cotizar proyecto
-          </a>
-
-          <a href="#precios" class="btn btn-secondary">
-            Ver rangos de inversión
-          </a>
-        </div>
-
-        <div class="hero-note">
-          <span>✔ Soluciones reales para empresas reales</span>
-          <span>✔ Diseño, desarrollo y estructura profesional</span>
-          <span>✔ Apps simples, de negocio y empresariales</span>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="hero-card">
-          <div class="hero-card-top">
-            <span class="mini">Propuesta comercial</span>
-            <span class="mini-badge">by D&amp;H</span>
+        <div class="hero-left">
+          <div class="hero-kicker">
+            Desarrollo tecnológico para empresas, pymes y emprendedores en Chile
           </div>
 
-          <h3>Qué podemos construir</h3>
-          <p>
-            Apps móviles, sistemas internos, paneles administrativos, plataformas para clientes,
-            control operativo, automatización de procesos, reservas, pedidos, ventas y soluciones digitales a medida.
+          <h1>
+            Creamos aplicaciones y plataformas
+            <span class="accent">que convierten ideas en negocios digitales reales</span>
+          </h1>
+
+          <p class="hero-text">
+            Diseñamos y desarrollamos apps móviles, paneles administrativos y sistemas web
+            con enfoque comercial, operativo y escalable. Construimos soluciones que ayudan
+            a vender más, ordenar procesos y profesionalizar empresas que quieren crecer.
           </p>
 
-          <div class="hero-points">
-            <div class="hero-point">
-              <span class="point-icon">📱</span>
-              <div>
-                <strong>Apps móviles</strong>
-                <small>Android y soluciones escalables</small>
+          <div class="hero-actions">
+            <a
+              href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20una%20aplicaci%C3%B3n%20para%20mi%20negocio."
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Evaluar mi proyecto
+            </a>
+
+            <a href="#precios" class="btn btn-secondary">
+              Ver rangos de inversión
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <span>✔ Desarrollo profesional a medida</span>
+            <span>✔ Soluciones pensadas para operar de verdad</span>
+            <span>✔ Apps, paneles, automatización e integraciones</span>
+          </div>
+
+          <div class="hero-metrics">
+            <article class="metric-card">
+              <strong>Apps móviles</strong>
+              <span>Android y soluciones escalables</span>
+            </article>
+
+            <article class="metric-card">
+              <strong>Paneles web</strong>
+              <span>Control, reportes y administración</span>
+            </article>
+
+            <article class="metric-card">
+              <strong>Desarrollo a medida</strong>
+              <span>Procesos, lógica e integraciones</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-visual-card">
+            <div class="hero-visual-top">
+              <span class="mini">Propuesta tecnológica</span>
+              <span class="mini-badge">AppFactory Chile</span>
+            </div>
+
+            <div class="dashboard-preview">
+              <div class="dashboard-sidebar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <div class="dashboard-main">
+                <div class="dashboard-row top-row">
+                  <div class="dash-chip active">Apps</div>
+                  <div class="dash-chip">Paneles</div>
+                  <div class="dash-chip">Automatización</div>
+                </div>
+
+                <div class="dashboard-stats">
+                  <div class="stat-box">
+                    <small>Operación</small>
+                    <strong>+ Orden</strong>
+                  </div>
+                  <div class="stat-box">
+                    <small>Ventas</small>
+                    <strong>+ Flujo</strong>
+                  </div>
+                  <div class="stat-box">
+                    <small>Procesos</small>
+                    <strong>+ Control</strong>
+                  </div>
+                </div>
+
+                <div class="dashboard-chart">
+                  <div class="chart-line"></div>
+                  <div class="chart-glow"></div>
+                </div>
+
+                <div class="dashboard-cards">
+                  <div class="mini-panel"></div>
+                  <div class="mini-panel"></div>
+                  <div class="mini-panel"></div>
+                </div>
               </div>
             </div>
 
-            <div class="hero-point">
-              <span class="point-icon">💻</span>
-              <div>
-                <strong>Paneles web</strong>
-                <small>Gestión y administración interna</small>
+            <div class="hero-points">
+              <div class="hero-point">
+                <span class="point-icon">01</span>
+                <div>
+                  <strong>Estructura seria</strong>
+                  <small>Proyectos diseñados para crecer y operar</small>
+                </div>
+              </div>
+
+              <div class="hero-point">
+                <span class="point-icon">02</span>
+                <div>
+                  <strong>Enfoque de negocio</strong>
+                  <small>No solo diseño: lógica, flujo y utilidad real</small>
+                </div>
+              </div>
+
+              <div class="hero-point">
+                <span class="point-icon">03</span>
+                <div>
+                  <strong>Imagen profesional</strong>
+                  <small>Tu empresa se ve tecnológica, sólida y confiable</small>
+                </div>
               </div>
             </div>
+          </div>
 
-            <div class="hero-point">
-              <span class="point-icon">⚙️</span>
-              <div>
-                <strong>Automatización</strong>
-                <small>Procesos, lógica e integraciones</small>
-              </div>
+          <div class="floating-tech-card">
+            <span class="floating-label">Tecnología</span>
+            <strong>Apps + Web + Admin</strong>
+            <small>Arquitectura visual moderna y escalable</small>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-strip-inner">
+        <span>Soluciones digitales a medida</span>
+        <span>Experiencia comercial y operativa</span>
+        <span>Apps pensadas para empresas reales</span>
+        <span>Respaldado por D&amp;H</span>
+      </div>
+    </section>
+
+    <section id="servicios" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Servicios</div>
+          <h2>Construimos tecnología útil, moderna y orientada a resultados</h2>
+          <p>
+            No se trata solo de programar. Aterrizamos ideas, ordenamos procesos
+            y desarrollamos soluciones con una imagen profesional y una estructura lista para crecer.
+          </p>
+        </div>
+
+        <div class="cards cards-3">
+          <article class="card glass-card">
+            <div class="icon-wrap">
+              <div class="icon">📱</div>
             </div>
+            <h3>Aplicaciones móviles</h3>
+            <p>
+              Apps para ventas, reservas, logística, clientes, fuerza comercial, servicios y operación interna.
+            </p>
+          </article>
+
+          <article class="card glass-card">
+            <div class="icon-wrap">
+              <div class="icon">🖥️</div>
+            </div>
+            <h3>Paneles administrativos</h3>
+            <p>
+              Paneles web para gestión de usuarios, pedidos, estadísticas, seguimiento, reportes y control.
+            </p>
+          </article>
+
+          <article class="card glass-card">
+            <div class="icon-wrap">
+              <div class="icon">⚙️</div>
+            </div>
+            <h3>Automatización y desarrollo a medida</h3>
+            <p>
+              Soluciones personalizadas para digitalizar tareas, ordenar flujos e integrar funciones clave.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="soluciones" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Soluciones</div>
+          <h2>¿Qué tipo de proyectos podemos desarrollar?</h2>
+          <p>
+            Diseñamos plataformas modernas para empresas que quieren avanzar más allá
+            de WhatsApp, Excel o procesos manuales.
+          </p>
+        </div>
+
+        <div class="solution-grid">
+          <article class="solution-card">
+            <h3>Apps de pedidos y ventas</h3>
+            <p>Para negocios que necesitan captar pedidos, vender más y ordenar su atención.</p>
+          </article>
+
+          <article class="solution-card">
+            <h3>Apps de reservas y servicios</h3>
+            <p>Para agendar, controlar disponibilidad, gestionar clientes y mejorar la operación.</p>
+          </article>
+
+          <article class="solution-card">
+            <h3>Sistemas internos</h3>
+            <p>Para procesos, inventario, reportes, supervisión y administración de áreas críticas.</p>
+          </article>
+
+          <article class="solution-card">
+            <h3>Plataformas con usuarios y roles</h3>
+            <p>Para clientes, colaboradores, administradores, operadores o distintas áreas del negocio.</p>
+          </article>
+
+          <article class="solution-card">
+            <h3>Apps para terreno y logística</h3>
+            <p>Para seguimiento, validación, reportes, rutas, evidencia y control operativo.</p>
+          </article>
+
+          <article class="solution-card">
+            <h3>MVPs serios para startups</h3>
+            <p>Para emprendedores que necesitan validar una idea con una base sólida y profesional.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-band">
+      <div class="container">
+        <div class="split two-col-feature">
+
+          <div class="info-box premium-box">
+            <div class="box-kicker">Ideal para</div>
+            <h3>Empresas, pymes y emprendedores que quieren profesionalizar su operación</h3>
+            <ul class="list">
+              <li>✔ Empresas que quieren digitalizar procesos</li>
+              <li>✔ Pymes que necesitan vender o controlar mejor</li>
+              <li>✔ Negocios que hoy operan con planillas o mensajes manuales</li>
+              <li>✔ Emprendedores con una idea seria de aplicación</li>
+              <li>✔ Proyectos que necesitan una plataforma sólida desde el inicio</li>
+            </ul>
+          </div>
+
+          <div class="info-box premium-box">
+            <div class="box-kicker">Beneficios</div>
+            <h3>Una solución bien hecha mejora imagen, orden y crecimiento</h3>
+            <ul class="list">
+              <li>✔ Mayor percepción profesional frente a tus clientes</li>
+              <li>✔ Mejor control de procesos y seguimiento</li>
+              <li>✔ Menos trabajo manual y menos desorden</li>
+              <li>✔ Mejor experiencia digital para tu negocio</li>
+              <li>✔ Base escalable para crecer más adelante</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Proceso</div>
+          <h2>Así trabajamos un proyecto</h2>
+          <p>
+            La diferencia no está solo en el código. Está en estructurar bien la idea,
+            priorizar lo importante y construir una solución usable, seria y escalable.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <span class="step">01</span>
+            <h3>Levantamiento</h3>
+            <p>Revisamos tu idea, necesidad, flujo operativo y objetivo comercial.</p>
+          </article>
+
+          <article class="process-card">
+            <span class="step">02</span>
+            <h3>Estructura</h3>
+            <p>Definimos módulos, pantallas, lógica, roles y alcance real del proyecto.</p>
+          </article>
+
+          <article class="process-card">
+            <span class="step">03</span>
+            <h3>Diseño y desarrollo</h3>
+            <p>Construimos una solución moderna, funcional y alineada a tu negocio.</p>
+          </article>
+
+          <article class="process-card">
+            <span class="step">04</span>
+            <h3>Puesta en marcha</h3>
+            <p>Entregamos una base profesional lista para operar y crecer.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="precios" class="section alt pricing-section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Precios</div>
+          <h2>Planes y rangos de inversión</h2>
+          <p>
+            Un desarrollo profesional requiere análisis, diseño, estructura, desarrollo,
+            pruebas y una implementación coherente con proyectos reales.
+          </p>
+        </div>
+
+        <div class="pricing">
+
+          <article class="price-card">
+            <div class="badge">Entrada</div>
+            <h3>App Simple</h3>
+            <div class="subtitle">
+              Para proyectos funcionales que necesitan partir bien, con una base clara y profesional.
+            </div>
+            <div class="price">
+              Desde $2.000.000
+              <small>CLP + IVA según alcance</small>
+            </div>
+            <ul class="price-list">
+              <li>✔ Flujo principal del proyecto</li>
+              <li>✔ Estructura funcional base</li>
+              <li>✔ Backend simple</li>
+              <li>✔ Ideal para comenzar con orden</li>
+            </ul>
+            <a
+              href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20una%20app%20simple."
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener"
+            >
+              Cotizar App Simple
+            </a>
+          </article>
+
+          <article class="price-card featured">
+            <div class="badge">Recomendado</div>
+            <h3>App Negocio</h3>
+            <div class="subtitle">
+              Para empresas o pymes que necesitan una app seria, útil comercialmente y lista para operar.
+            </div>
+            <div class="price">
+              Desde $4.500.000
+              <small>CLP + IVA según complejidad</small>
+            </div>
+            <ul class="price-list">
+              <li>✔ App móvil completa</li>
+              <li>✔ Usuarios y panel administrativo</li>
+              <li>✔ Lógica de negocio</li>
+              <li>✔ Reportes y control operativo</li>
+            </ul>
+            <a
+              href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20una%20app%20de%20negocio."
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Cotizar App Negocio
+            </a>
+          </article>
+
+          <article class="price-card">
+            <div class="badge">A medida</div>
+            <h3>App Empresarial</h3>
+            <div class="subtitle">
+              Para proyectos con múltiples módulos, automatizaciones, integraciones o alta complejidad.
+            </div>
+            <div class="price">
+              Desde $6.000.000+
+              <small>CLP + IVA según requerimientos</small>
+            </div>
+            <ul class="price-list">
+              <li>✔ Solución integral a medida</li>
+              <li>✔ Múltiples flujos y perfiles</li>
+              <li>✔ Arquitectura robusta</li>
+              <li>✔ Integraciones avanzadas</li>
+            </ul>
+            <a
+              href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20una%20app%20empresarial."
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener"
+            >
+              Cotizar App Empresarial
+            </a>
+          </article>
+
+        </div>
+
+        <div class="important-note">
+          <strong>Importante:</strong>
+          cada proyecto se cotiza según alcance, complejidad, tiempos, integraciones y objetivos.
+          Estos valores son referenciales y sirven como base de orientación comercial.
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box">
+          <div class="section-kicker">Contacto</div>
+          <h2>¿Tienes una idea, una necesidad operativa o un proyecto que quieres convertir en app?</h2>
+          <p>
+            Hablemos. Podemos ayudarte a transformar una necesidad real de tu empresa
+            en una solución digital profesional, clara y lista para crecer.
+          </p>
+          <div class="cta-actions">
+            <a
+              href="https://wa.me/56954486171?text=Hola%2C%20quiero%20evaluar%20una%20aplicaci%C3%B3n%20para%20mi%20empresa."
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Hablar por WhatsApp
+            </a>
+
+            <a href="#servicios" class="btn btn-secondary">
+              Ver servicios
+            </a>
           </div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <section id="servicios" class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2>Servicios</h2>
-        <p>
-          Diseñamos y desarrollamos soluciones tecnológicas orientadas a negocio.
-          No solo programamos: aterrizamos ideas, definimos estructura y construimos herramientas útiles.
-        </p>
-      </div>
-
-      <div class="cards">
-        <article class="card">
-          <div class="icon">📲</div>
-          <h3>Apps para empresas</h3>
-          <p>
-            Aplicaciones para clientes, ventas, reservas, logística, fuerza comercial y operación interna.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="icon">🧩</div>
-          <h3>Desarrollo a medida</h3>
-          <p>
-            Si tienes una idea o una necesidad concreta, construimos una solución ajustada a tu negocio.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="icon">📊</div>
-          <h3>Panel administrativo</h3>
-          <p>
-            Creamos paneles para usuarios, pedidos, estadísticas, administración y control operativo.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="container">
-      <div class="split">
-
-        <div class="info-box">
-          <h3>¿Para quién es este servicio?</h3>
-          <ul class="list">
-            <li>✔ Empresas que quieren digitalizar procesos</li>
-            <li>✔ Pymes que necesitan vender o controlar mejor</li>
-            <li>✔ Emprendedores con una idea seria de app</li>
-            <li>✔ Negocios que hoy trabajan solo con WhatsApp o planillas</li>
-            <li>✔ Proyectos que necesitan una plataforma robusta</li>
-          </ul>
-        </div>
-
-        <div class="info-box">
-          <h3>¿Qué soluciones construimos?</h3>
-          <ul class="list">
-            <li>✔ Apps de pedidos y ventas</li>
-            <li>✔ Apps para servicios técnicos o terreno</li>
-            <li>✔ Plataformas con usuarios y roles</li>
-            <li>✔ Sistemas con panel administrativo</li>
-            <li>✔ Soluciones con pagos y reportes</li>
-            <li>✔ MVPs serios para startups</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="precios" class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2>Planes y rangos de inversión</h2>
-        <p>
-          Un desarrollo profesional requiere análisis, estructura, diseño, desarrollo, pruebas y puesta en marcha.
-          Por eso trabajamos con rangos coherentes con proyectos reales.
-        </p>
-      </div>
-
-      <div class="pricing">
-
-        <article class="price-card">
-          <div class="badge">Entrada</div>
-          <h3>App Simple</h3>
-          <div class="subtitle">
-            Para clientes que necesitan una solución funcional, clara y profesional para comenzar.
-          </div>
-          <div class="price">
-            Desde $2.000.000
-            <small>CLP + IVA según alcance</small>
-          </div>
-          <ul class="price-list">
-            <li>✔ Flujo principal del proyecto</li>
-            <li>✔ Estructura base funcional</li>
-            <li>✔ Backend simple</li>
-            <li>✔ Ideal para partir bien</li>
-          </ul>
-          <a
-            href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20una%20app%20simple."
-            class="btn btn-secondary"
-            target="_blank"
-            rel="noopener"
-          >
-            Cotizar App Simple
-          </a>
-        </article>
-
-        <article class="price-card featured">
-          <div class="badge">Recomendado</div>
-          <h3>App Negocio</h3>
-          <div class="subtitle">
-            Para empresas o pymes que necesitan una aplicación seria, útil comercialmente y lista para operar.
-          </div>
-          <div class="price">
-            Desde $4.500.000
-            <small>CLP + IVA según complejidad</small>
-          </div>
-          <ul class="price-list">
-            <li>✔ App móvil completa</li>
-            <li>✔ Usuarios y panel administrativo</li>
-            <li>✔ Lógica de negocio</li>
-            <li>✔ Reportes y control operativo</li>
-          </ul>
-          <a
-            href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20una%20app%20de%20negocio."
-            class="btn btn-primary"
-            target="_blank"
-            rel="noopener"
-          >
-            Cotizar App Negocio
-          </a>
-        </article>
-
-        <article class="price-card">
-          <div class="badge">A medida</div>
-          <h3>App Empresarial</h3>
-          <div class="subtitle">
-            Para proyectos con múltiples módulos, automatizaciones, integraciones o alta complejidad.
-          </div>
-          <div class="price">
-            Desde $6.000.000+
-            <small>CLP + IVA según requerimientos</small>
-          </div>
-          <ul class="price-list">
-            <li>✔ Solución integral a medida</li>
-            <li>✔ Múltiples flujos y perfiles</li>
-            <li>✔ Arquitectura robusta</li>
-            <li>✔ Integraciones avanzadas</li>
-          </ul>
-          <a
-            href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20una%20app%20empresarial."
-            class="btn btn-secondary"
-            target="_blank"
-            rel="noopener"
-          >
-            Cotizar App Empresarial
-          </a>
-        </article>
-
-      </div>
-
-      <div class="important-note">
-        <strong>Importante:</strong> cada proyecto se cotiza según alcance, complejidad, tiempos, integraciones y objetivos.
-        Estos valores son referenciales.
-      </div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="container">
-      <div class="cta-box">
-        <h2>¿Tienes una idea o una necesidad real?</h2>
-        <p>
-          Conversemos tu proyecto. Podemos ayudarte a transformar una necesidad operativa o comercial
-          en una aplicación profesional y útil para tu negocio.
-        </p>
-        <a
-          href="https://wa.me/56954486171?text=Hola%2C%20quiero%20evaluar%20una%20aplicaci%C3%B3n%20para%20mi%20empresa."
-          class="btn btn-primary"
-          target="_blank"
-          rel="noopener"
-        >
-          Hablar por WhatsApp
-        </a>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <footer class="footer">
     <div class="container footer-inner">
