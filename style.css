@@ -38,6 +38,8 @@ a{
   margin:0 auto;
 }
 
+/* ================= HEADER ================= */
+
 .main-header{
   position:sticky;
   top:0;
@@ -61,16 +63,12 @@ a{
   gap:14px;
 }
 
-.brand-mark{
-  width:46px;
-  height:46px;
-  border-radius:14px;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(135deg,var(--blue2),var(--blue));
-  color:#fff;
-  font-weight:800;
-  box-shadow:0 0 24px rgba(10,108,255,.35);
+.logo-img{
+  height:54px;
+  width:auto;
+  object-fit:contain;
+  display:block;
+  filter: drop-shadow(0 8px 18px rgba(10,108,255,.18));
 }
 
 .brand-copy{
@@ -94,6 +92,8 @@ a{
   align-items:center;
   gap:12px;
 }
+
+/* ================= BOTONES ================= */
 
 .btn{
   display:inline-flex;
@@ -125,6 +125,8 @@ a{
   background:rgba(255,255,255,.06);
   border:1px solid rgba(255,255,255,.09);
 }
+
+/* ================= HERO ================= */
 
 .hero{
   position:relative;
@@ -268,6 +270,8 @@ a{
   font-size:.95rem;
 }
 
+/* ================= SECCIONES ================= */
+
 .section{
   padding:88px 0;
 }
@@ -292,6 +296,8 @@ a{
   color:var(--muted);
   line-height:1.7;
 }
+
+/* ================= CARDS ================= */
 
 .cards{
   display:grid;
@@ -330,6 +336,8 @@ a{
   line-height:1.7;
   font-size:.96rem;
 }
+
+/* ================= BLOQUES INFO ================= */
 
 .split{
   display:grid;
@@ -370,6 +378,8 @@ a{
   padding-left:0;
   line-height:1.6;
 }
+
+/* ================= PRECIOS ================= */
 
 .pricing{
   display:grid;
@@ -460,6 +470,8 @@ a{
   font-size:.95rem;
 }
 
+/* ================= CTA ================= */
+
 .cta{
   text-align:center;
   padding:90px 0;
@@ -487,6 +499,8 @@ a{
   color:var(--muted);
   line-height:1.7;
 }
+
+/* ================= FOOTER ================= */
 
 .footer{
   padding:34px 0 40px;
@@ -519,6 +533,34 @@ a{
   font-size:.92rem;
 }
 
+/* ================= WHATSAPP FLOTANTE ================= */
+
+.whatsapp-float{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  box-shadow:0 14px 30px rgba(0,0,0,.35);
+  z-index:999;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+
+.whatsapp-float:hover{
+  transform:scale(1.08);
+  box-shadow:0 18px 34px rgba(0,0,0,.42);
+}
+
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 980px){
   .hero-grid,
   .split,
@@ -545,5 +587,27 @@ a{
 
   .price-card.featured{
     transform:none;
+  }
+}
+
+@media (max-width: 640px){
+  .logo-img{
+    height:46px;
+  }
+
+  .brand-copy strong{
+    font-size:.92rem;
+  }
+
+  .brand-copy span{
+    font-size:.72rem;
+  }
+
+  .whatsapp-float{
+    width:56px;
+    height:56px;
+    font-size:24px;
+    right:16px;
+    bottom:16px;
   }
 }
