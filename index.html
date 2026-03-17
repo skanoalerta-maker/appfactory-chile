@@ -1,182 +1,816 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-<title>AppFactory Chile | Desarrollo de aplicaciones móviles</title>
+  <title>AppFactory Chile by D&H | Desarrollo de aplicaciones móviles</title>
 
-<meta name="description"
-content="Creamos aplicaciones móviles para empresas y emprendedores en Chile. Apps para vender más, automatizar y crecer." />
+  <meta
+    name="description"
+    content="Desarrollo profesional de aplicaciones móviles y plataformas web para empresas y emprendedores en Chile. Soluciones a medida respaldadas por D&H."
+  />
 
-<meta name="theme-color" content="#0A6CFF" />
+  <meta name="theme-color" content="#0A6CFF" />
 
-<style>
-body{
-margin:0;
-font-family:Inter,system-ui;
-background:#060b16;
-color:#fff;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:20px;
-}
+  <style>
+    :root{
+      --bg:#07101f;
+      --bg2:#0b1528;
+      --card:#101b31;
+      --card2:#0d172c;
+      --line:rgba(255,255,255,.08);
+      --text:#f8fbff;
+      --muted:#b8c4da;
+      --blue:#0A6CFF;
+      --blue2:#49b6ff;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:18px;
+      --radius-lg:26px;
+      --max:1180px;
+    }
 
-.hero{
-min-height:90vh;
-display:flex;
-align-items:center;
-background:
-linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.85)),
-url("https://images.unsplash.com/photo-1518770660439-4636190af475") center/cover;
-}
+    *{box-sizing:border-box}
 
-.hero h1{
-font-size:3rem;
-margin-bottom:10px;
-}
+    html,body{
+      margin:0;
+      padding:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top, #0d1b35 0%, #07101f 45%, #040914 100%);
+      color:var(--text);
+      scroll-behavior:smooth;
+    }
 
-.hero p{
-color:#cbd5e1;
-max-width:500px;
-}
+    a{color:inherit}
 
-.btn{
-display:inline-block;
-padding:14px 22px;
-border-radius:10px;
-text-decoration:none;
-margin-top:20px;
-}
+    .container{
+      width:min(var(--max), 92%);
+      margin:0 auto;
+    }
 
-.btn-primary{
-background:#0A6CFF;
-color:#fff;
-}
+    .main-header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(7,16,31,.82);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
 
-.section{
-padding:80px 0;
-}
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      min-height:76px;
+    }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-margin-top:30px;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
 
-.card{
-background:#0f172a;
-padding:25px;
-border-radius:14px;
-border:1px solid rgba(255,255,255,.08);
-}
+    .brand-mark{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--blue2),var(--blue));
+      color:#fff;
+      font-weight:800;
+      box-shadow:0 0 24px rgba(10,108,255,.35);
+    }
 
-.footer{
-padding:30px;
-text-align:center;
-border-top:1px solid rgba(255,255,255,.08);
-}
-</style>
+    .brand-copy{
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+    }
 
+    .brand-copy strong{
+      font-size:1rem;
+      letter-spacing:.02em;
+    }
+
+    .brand-copy span{
+      font-size:.78rem;
+      color:var(--muted);
+    }
+
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border:none;
+      text-decoration:none;
+      border-radius:999px;
+      padding:13px 22px;
+      font-size:.95rem;
+      font-weight:700;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-primary{
+      color:#fff;
+      background:linear-gradient(135deg,var(--blue2),var(--blue));
+      box-shadow:0 12px 28px rgba(10,108,255,.35);
+    }
+
+    .btn-secondary{
+      color:#d9e8ff;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.09);
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      min-height:92vh;
+      display:flex;
+      align-items:center;
+      background:
+        linear-gradient(rgba(3,8,18,.58), rgba(3,8,18,.86)),
+        url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:380px;
+      height:380px;
+      border-radius:50%;
+      background:rgba(10,108,255,.18);
+      filter:blur(80px);
+      top:80px;
+      left:-80px;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:340px;
+      height:340px;
+      border-radius:50%;
+      background:rgba(73,182,255,.12);
+      filter:blur(80px);
+      right:-80px;
+      bottom:40px;
+    }
+
+    .hero-grid{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.12fr .88fr;
+      gap:36px;
+      align-items:center;
+      padding:70px 0;
+    }
+
+    .hero-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:.78rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#d8e7ff;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.08);
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      font-size:clamp(2.3rem, 4.6vw, 4.4rem);
+      line-height:1.03;
+      margin:0 0 16px;
+      max-width:760px;
+    }
+
+    .hero h1 .accent{
+      display:block;
+      background:linear-gradient(90deg,#89d8ff,#51b7ff,#0A6CFF);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:1.7;
+      max-width:700px;
+      margin:0 0 26px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:20px;
+    }
+
+    .hero-note{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      color:#c9d8f0;
+      font-size:.93rem;
+    }
+
+    .hero-card{
+      background:rgba(10,18,35,.72);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(16px);
+    }
+
+    .hero-card .mini{
+      color:#8eb9ff;
+      font-size:.8rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+      display:block;
+    }
+
+    .hero-card h3{
+      margin:0 0 12px;
+      font-size:1.35rem;
+    }
+
+    .hero-card p{
+      font-size:.96rem;
+      line-height:1.65;
+      margin:0 0 18px;
+      color:var(--muted);
+    }
+
+    .hero-points{
+      display:grid;
+      gap:12px;
+    }
+
+    .hero-point{
+      padding:14px 16px;
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.06);
+      color:#deebff;
+      font-size:.95rem;
+    }
+
+    .section{
+      padding:88px 0;
+    }
+
+    .section.alt{
+      background:linear-gradient(180deg, rgba(255,255,255,.015), rgba(255,255,255,0));
+    }
+
+    .section-head{
+      max-width:780px;
+      margin:0 auto 40px;
+      text-align:center;
+    }
+
+    .section-head h2{
+      margin:0 0 12px;
+      font-size:clamp(1.8rem,3vw,2.6rem);
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:22px;
+    }
+
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      padding:26px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .card .icon{
+      width:52px;
+      height:52px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      margin-bottom:16px;
+      background:linear-gradient(135deg,rgba(73,182,255,.22),rgba(10,108,255,.18));
+      border:1px solid rgba(73,182,255,.24);
+      font-size:1.2rem;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      font-size:1.18rem;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:.96rem;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    .info-box{
+      background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .info-box h3{
+      margin-top:0;
+      margin-bottom:14px;
+      font-size:1.25rem;
+    }
+
+    .info-box p{
+      color:var(--muted);
+      line-height:1.7;
+      margin-top:0;
+    }
+
+    .list{
+      display:grid;
+      gap:10px;
+      padding:0;
+      margin:0;
+      list-style:none;
+    }
+
+    .list li{
+      color:#d9e6fb;
+      padding-left:0;
+      line-height:1.6;
+    }
+
+    .pricing{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .price-card{
+      position:relative;
+      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:30px 26px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .price-card.featured{
+      border-color:rgba(73,182,255,.35);
+      transform:translateY(-4px);
+      box-shadow:0 24px 70px rgba(10,108,255,.16);
+    }
+
+    .badge{
+      display:inline-flex;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:.75rem;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+      background:rgba(73,182,255,.14);
+      border:1px solid rgba(73,182,255,.25);
+      color:#cfe7ff;
+    }
+
+    .price-card h3{
+      margin:0 0 8px;
+      font-size:1.35rem;
+    }
+
+    .price-card .subtitle{
+      color:var(--muted);
+      margin-bottom:18px;
+      line-height:1.6;
+      min-height:48px;
+    }
+
+    .price{
+      font-size:2rem;
+      font-weight:800;
+      margin-bottom:16px;
+      color:#fff;
+    }
+
+    .price small{
+      display:block;
+      margin-top:6px;
+      font-size:.82rem;
+      font-weight:500;
+      color:#99a8c4;
+    }
+
+    .price-list{
+      list-style:none;
+      padding:0;
+      margin:0 0 24px;
+      display:grid;
+      gap:10px;
+    }
+
+    .price-list li{
+      color:#dbe6fb;
+      line-height:1.55;
+      font-size:.95rem;
+    }
+
+    .important-note{
+      margin-top:26px;
+      padding:18px 20px;
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.07);
+      color:var(--muted);
+      line-height:1.7;
+      font-size:.95rem;
+    }
+
+    .cta{
+      text-align:center;
+      padding:90px 0;
+    }
+
+    .cta-box{
+      max-width:900px;
+      margin:0 auto;
+      padding:40px 28px;
+      border-radius:28px;
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+
+    .cta-box h2{
+      margin:0 0 12px;
+      font-size:clamp(1.9rem,3vw,2.8rem);
+    }
+
+    .cta-box p{
+      margin:0 auto 22px;
+      max-width:700px;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .footer{
+      padding:34px 0 40px;
+      border-top:1px solid rgba(255,255,255,.06);
+      background:#050c18;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-copy{
+      color:#97a4bc;
+      font-size:.9rem;
+    }
+
+    .footer-copy strong{
+      color:#e6f1ff;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      color:#b9c7de;
+      font-size:.92rem;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .split,
+      .pricing,
+      .cards{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        min-height:auto;
+      }
+
+      .hero-grid{
+        padding:56px 0 72px;
+      }
+
+      .hero h1{
+        font-size:clamp(2.1rem,8vw,3.3rem);
+      }
+
+      .header-actions{
+        display:none;
+      }
+
+      .price-card.featured{
+        transform:none;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<section class="hero">
-<div class="container">
-<h1>Creamos apps para tu negocio</h1>
-<p>
-Desarrollamos aplicaciones móviles para empresas y emprendedores que quieren vender más, automatizar procesos y crecer.
-</p>
+  <header class="main-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark">AF</div>
+        <div class="brand-copy">
+          <strong>AppFactory Chile</strong>
+          <span>Desarrollo de apps y plataformas · Respaldado por D&H</span>
+        </div>
+      </div>
 
-<a href="https://wa.me/56954486171" class="btn btn-primary">
-Cotizar por WhatsApp
-</a>
-</div>
-</section>
+      <div class="header-actions">
+        <a href="#precios" class="btn btn-secondary">Ver precios</a>
+        <a href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20una%20aplicaci%C3%B3n%20para%20mi%20negocio." class="btn btn-primary">
+          Cotizar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
 
-<!-- SERVICIOS -->
-<section class="section">
-<div class="container">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-kicker">Aplicaciones móviles · Paneles web · Soluciones a medida</div>
 
-<h2>¿Qué hacemos?</h2>
+        <h1>
+          Creamos aplicaciones
+          <span class="accent">para empresas y negocios reales</span>
+        </h1>
 
-<div class="cards">
+        <p>
+          En AppFactory Chile desarrollamos aplicaciones móviles y plataformas web con enfoque profesional, comercial y operativo.
+          Creamos soluciones para empresas, pymes y emprendedores que necesitan vender más, automatizar procesos y digitalizar su operación.
+          <strong>Proyecto respaldado por D&amp;H.</strong>
+        </p>
 
-<div class="card">
-<h3>Apps para negocios</h3>
-<p>Pedidos, clientes, control y automatización.</p>
-</div>
+        <div class="hero-actions">
+          <a href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20una%20aplicaci%C3%B3n%20para%20mi%20negocio." class="btn btn-primary">
+            Cotizar por WhatsApp
+          </a>
+          <a href="#servicios" class="btn btn-secondary">
+            Ver servicios
+          </a>
+        </div>
 
-<div class="card">
-<h3>Apps personalizadas</h3>
-<p>Desarrollos a medida según tu idea.</p>
-</div>
+        <div class="hero-note">
+          <span>✔ Desarrollo profesional y a medida</span>
+          <span>✔ Enfoque en empresas, operación y crecimiento</span>
+          <span>✔ No vendemos “apps baratas”; construimos soluciones serias</span>
+        </div>
+      </div>
 
-<div class="card">
-<h3>Panel administrativo</h3>
-<p>Control total de tu app desde web.</p>
-</div>
+      <div class="hero-card">
+        <span class="mini">Propuesta comercial</span>
+        <h3>¿Qué desarrollamos?</h3>
+        <p>
+          Aplicaciones móviles, paneles administrativos, plataformas internas, soluciones de pedidos, control operativo, gestión de usuarios,
+          reportes, membresías, automatización de procesos y sistemas digitales para empresas.
+        </p>
 
-</div>
+        <div class="hero-points">
+          <div class="hero-point">📱 Apps Android y soluciones móviles</div>
+          <div class="hero-point">💻 Paneles web y administración interna</div>
+          <div class="hero-point">⚙️ Integraciones, automatización y escalabilidad</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
-</section>
+  <section id="servicios" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>¿Qué hacemos?</h2>
+        <p>
+          Diseñamos y desarrollamos soluciones tecnológicas orientadas a negocio.
+          No solo programamos: aterrizamos ideas, definimos estructura y construimos herramientas útiles para operar y crecer.
+        </p>
+      </div>
 
-<!-- PRECIOS -->
-<section class="section">
-<div class="container">
+      <div class="cards">
+        <div class="card">
+          <div class="icon">📲</div>
+          <h3>Apps para empresas</h3>
+          <p>
+            Aplicaciones para clientes, operación interna, fuerza de ventas, logística, reservas, control y automatización de procesos.
+          </p>
+        </div>
 
-<h2>Planes</h2>
+        <div class="card">
+          <div class="icon">🧩</div>
+          <h3>Desarrollo a medida</h3>
+          <p>
+            Si tienes una idea o un problema específico, diseñamos una solución tecnológica ajustada a tu negocio y objetivo real.
+          </p>
+        </div>
 
-<div class="cards">
+        <div class="card">
+          <div class="icon">📊</div>
+          <h3>Panel administrativo</h3>
+          <p>
+            Creamos paneles web para gestión de usuarios, pedidos, estadísticas, administración, seguimiento y toma de decisiones.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<h3>Starter</h3>
-<p>App básica para comenzar</p>
-<strong>$500.000</strong>
-</div>
+  <section class="section alt">
+    <div class="container">
+      <div class="split">
+        <div class="info-box">
+          <h3>¿Para quién es este servicio?</h3>
+          <ul class="list">
+            <li>✔ Empresas que quieren digitalizar procesos</li>
+            <li>✔ Pymes que necesitan vender o controlar mejor</li>
+            <li>✔ Emprendedores con una idea seria de app</li>
+            <li>✔ Negocios que hoy trabajan solo con WhatsApp, planillas o procesos manuales</li>
+            <li>✔ Proyectos que necesitan una plataforma robusta y escalable</li>
+          </ul>
+        </div>
 
-<div class="card">
-<h3>Negocio</h3>
-<p>App completa con usuarios</p>
-<strong>$1.200.000</strong>
-</div>
+        <div class="info-box">
+          <h3>¿Qué tipo de soluciones podemos construir?</h3>
+          <ul class="list">
+            <li>✔ Apps de pedidos y ventas</li>
+            <li>✔ Apps para servicios técnicos o terreno</li>
+            <li>✔ Plataformas con usuarios y roles</li>
+            <li>✔ Sistemas con panel administrativo</li>
+            <li>✔ Soluciones con pagos, reportes y notificaciones</li>
+            <li>✔ MVPs serios para startups y proyectos nuevos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<h3>Premium</h3>
-<p>App avanzada a medida</p>
-<strong>$3.000.000+</strong>
-</div>
+  <section id="precios" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Planes y rangos de inversión</h2>
+        <p>
+          Un desarrollo profesional no es barato, porque involucra análisis, arquitectura, diseño, desarrollo, pruebas y puesta en marcha.
+          Por eso trabajamos con rangos serios, alineados a proyectos reales.
+        </p>
+      </div>
 
-</div>
+      <div class="pricing">
+        <div class="price-card">
+          <div class="badge">Base</div>
+          <h3>MVP Inicial</h3>
+          <div class="subtitle">
+            Para empresas o emprendedores que necesitan una primera versión profesional y funcional.
+          </div>
+          <div class="price">
+            Desde $4.500.000
+            <small>CLP + IVA según alcance</small>
+          </div>
+          <ul class="price-list">
+            <li>✔ Estructura base del proyecto</li>
+            <li>✔ App inicial con flujo principal</li>
+            <li>✔ Backend y base de datos</li>
+            <li>✔ Panel o administración básica según caso</li>
+            <li>✔ Ideal para validación seria</li>
+          </ul>
+          <a href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20un%20MVP%20inicial." class="btn btn-secondary">Cotizar MVP</a>
+        </div>
 
-</div>
-</section>
+        <div class="price-card featured">
+          <div class="badge">Recomendado</div>
+          <h3>App Empresarial</h3>
+          <div class="subtitle">
+            Para negocios que necesitan una aplicación sólida, útil comercialmente y preparada para operar.
+          </div>
+          <div class="price">
+            Desde $6.000.000
+            <small>CLP + IVA según complejidad</small>
+          </div>
+          <ul class="price-list">
+            <li>✔ App móvil completa</li>
+            <li>✔ Usuarios, roles y panel administrativo</li>
+            <li>✔ Reportes, operación y control</li>
+            <li>✔ Integraciones y lógica de negocio</li>
+            <li>✔ Enfoque profesional para empresa real</li>
+          </ul>
+          <a href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20una%20app%20empresarial." class="btn btn-primary">Cotizar App Empresarial</a>
+        </div>
 
-<!-- CTA FINAL -->
-<section class="section">
-<div class="container">
+        <div class="price-card">
+          <div class="badge">A medida</div>
+          <h3>Plataforma Avanzada</h3>
+          <div class="subtitle">
+            Para proyectos complejos con múltiples módulos, usuarios, automatizaciones o escalabilidad alta.
+          </div>
+          <div class="price">
+            Desde $9.000.000
+            <small>CLP + IVA según requerimientos</small>
+          </div>
+          <ul class="price-list">
+            <li>✔ Solución integral a medida</li>
+            <li>✔ Múltiples flujos y perfiles</li>
+            <li>✔ Escalabilidad y arquitectura robusta</li>
+            <li>✔ Funciones avanzadas e integraciones</li>
+            <li>✔ Ideal para proyectos de mayor impacto</li>
+          </ul>
+          <a href="https://wa.me/56954486171?text=Hola%2C%20quiero%20cotizar%20una%20plataforma%20avanzada." class="btn btn-secondary">Cotizar Plataforma</a>
+        </div>
+      </div>
 
-<h2>¿Tienes una idea?</h2>
-<p>Nosotros la convertimos en una aplicación real.</p>
+      <div class="important-note">
+        <strong>Importante:</strong> cada proyecto se cotiza según alcance, complejidad, tiempos, integraciones y objetivos.
+        Estos valores son referenciales para posicionar el servicio correctamente. Una solución seria requiere inversión seria.
+      </div>
+    </div>
+  </section>
 
-<a href="https://wa.me/56954486171" class="btn btn-primary">
-Hablar ahora
-</a>
+  <section class="cta">
+    <div class="container">
+      <div class="cta-box">
+        <h2>¿Tienes una idea o una necesidad real?</h2>
+        <p>
+          Conversemos tu proyecto. Podemos ayudarte a transformar una necesidad operativa o comercial en una aplicación real, profesional y útil para tu negocio.
+        </p>
+        <a href="https://wa.me/56954486171?text=Hola%2C%20quiero%20evaluar%20una%20aplicaci%C3%B3n%20para%20mi%20empresa." class="btn btn-primary">
+          Hablar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
 
-</div>
-</section>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-copy">
+        <strong>AppFactory Chile</strong> · Desarrollo de aplicaciones móviles y plataformas web<br>
+        Proyecto respaldado por <strong>D&amp;H</strong>
+      </div>
 
-<!-- FOOTER -->
-<footer class="footer">
-© 2026 AppFactory Chile
-</footer>
+      <div class="footer-links">
+        <span>Chile</span>
+        <span>Apps a medida</span>
+        <span>Empresas y emprendedores</span>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
