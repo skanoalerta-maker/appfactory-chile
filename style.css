@@ -10,6 +10,7 @@
   --blue2:#49b6ff;
   --blue-soft:#eaf3ff;
   --shadow:0 20px 50px rgba(15, 23, 42, .08);
+  --shadow-soft:0 10px 30px rgba(15, 23, 42, .05);
   --radius:18px;
   --radius-lg:26px;
   --max:1180px;
@@ -31,6 +32,7 @@ body{
 
 a{
   color:inherit;
+  text-decoration:none;
 }
 
 .container{
@@ -43,9 +45,9 @@ a{
 .main-header{
   position:sticky;
   top:0;
-  z-index:20;
-  backdrop-filter:blur(14px);
-  background:rgba(255,255,255,.9);
+  z-index:30;
+  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,.88);
   border-bottom:1px solid var(--line);
 }
 
@@ -54,7 +56,7 @@ a{
   align-items:center;
   justify-content:space-between;
   gap:20px;
-  min-height:78px;
+  min-height:82px;
 }
 
 .brand{
@@ -63,9 +65,25 @@ a{
   gap:14px;
 }
 
+.brand-logo-wrap{
+  width:68px;
+  height:68px;
+  border-radius:18px;
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:0 12px 26px rgba(15,23,42,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  padding:8px;
+}
+
 .logo-img{
-  height:56px;
+  max-width:100%;
+  max-height:100%;
   width:auto;
+  height:auto;
   object-fit:contain;
   display:block;
 }
@@ -73,12 +91,12 @@ a{
 .brand-copy{
   display:flex;
   flex-direction:column;
-  gap:3px;
+  gap:4px;
 }
 
 .brand-copy strong{
-  font-size:1rem;
-  letter-spacing:.02em;
+  font-size:1.02rem;
+  letter-spacing:.01em;
   color:var(--text);
 }
 
@@ -137,29 +155,28 @@ a{
   background:
     radial-gradient(circle at top left, rgba(73,182,255,.14), transparent 28%),
     radial-gradient(circle at bottom right, rgba(10,108,255,.10), transparent 26%),
-    linear-gradient(180deg,#ffffff 0%, #f5f7fb 100%);
+    linear-gradient(180deg,#ffffff 0%, #f6f9fd 100%);
 }
 
-.hero::before{
-  content:"";
+.hero-orb{
   position:absolute;
-  width:320px;
-  height:320px;
   border-radius:50%;
-  background:rgba(10,108,255,.08);
   filter:blur(80px);
+  pointer-events:none;
+}
+
+.hero-orb-1{
+  width:280px;
+  height:280px;
+  background:rgba(10,108,255,.08);
   top:30px;
   left:-70px;
 }
 
-.hero::after{
-  content:"";
-  position:absolute;
-  width:300px;
-  height:300px;
-  border-radius:50%;
+.hero-orb-2{
+  width:260px;
+  height:260px;
   background:rgba(73,182,255,.08);
-  filter:blur(80px);
   right:-80px;
   bottom:10px;
 }
@@ -168,10 +185,10 @@ a{
   position:relative;
   z-index:1;
   display:grid;
-  grid-template-columns:1.1fr .9fr;
+  grid-template-columns:1.08fr .92fr;
   gap:36px;
   align-items:center;
-  padding:82px 0 74px;
+  padding:84px 0 78px;
 }
 
 .hero-kicker{
@@ -191,8 +208,8 @@ a{
 }
 
 .hero h1{
-  font-size:clamp(2.4rem, 4.6vw, 4.5rem);
-  line-height:1.03;
+  font-size:clamp(2.5rem, 4.8vw, 4.7rem);
+  line-height:1.02;
   margin:0 0 16px;
   max-width:760px;
   color:var(--text);
@@ -236,9 +253,17 @@ a{
 .hero-card{
   background:#ffffff;
   border:1px solid var(--line);
-  border-radius:28px;
+  border-radius:30px;
   padding:28px;
-  box-shadow:var(--shadow);
+  box-shadow:0 20px 50px rgba(15,23,42,.08);
+}
+
+.hero-card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:10px;
 }
 
 .hero-card .mini{
@@ -246,9 +271,18 @@ a{
   font-size:.8rem;
   letter-spacing:.08em;
   text-transform:uppercase;
-  margin-bottom:12px;
   display:block;
   font-weight:700;
+}
+
+.mini-badge{
+  font-size:.78rem;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#f8fafc;
+  border:1px solid var(--line);
+  color:var(--muted);
+  font-weight:600;
 }
 
 .hero-card h3{
@@ -259,7 +293,7 @@ a{
 
 .hero-card p{
   font-size:.96rem;
-  line-height:1.65;
+  line-height:1.7;
   margin:0 0 18px;
   color:var(--muted);
 }
@@ -276,6 +310,23 @@ a{
   border:1px solid var(--line);
   color:#1e293b;
   font-size:.95rem;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+
+.point-icon{
+  font-size:1.15rem;
+  line-height:1;
+}
+
+.hero-point strong{
+  display:block;
+  margin-bottom:3px;
+}
+
+.hero-point small{
+  color:var(--muted);
 }
 
 /* ================= SECCIONES ================= */
@@ -317,15 +368,21 @@ a{
 .card{
   background:#ffffff;
   border:1px solid var(--line);
-  padding:26px;
-  border-radius:var(--radius);
-  box-shadow:0 10px 30px rgba(15,23,42,.05);
+  padding:28px;
+  border-radius:22px;
+  box-shadow:var(--shadow-soft);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 38px rgba(15,23,42,.08);
 }
 
 .card .icon{
-  width:52px;
-  height:52px;
-  border-radius:14px;
+  width:54px;
+  height:54px;
+  border-radius:16px;
   display:grid;
   place-items:center;
   margin-bottom:16px;
@@ -358,9 +415,9 @@ a{
 .info-box{
   background:#ffffff;
   border:1px solid var(--line);
-  border-radius:22px;
+  border-radius:24px;
   padding:28px;
-  box-shadow:0 10px 30px rgba(15,23,42,.05);
+  box-shadow:var(--shadow-soft);
 }
 
 .info-box h3{
@@ -368,12 +425,6 @@ a{
   margin-bottom:14px;
   font-size:1.25rem;
   color:var(--text);
-}
-
-.info-box p{
-  color:var(--muted);
-  line-height:1.7;
-  margin-top:0;
 }
 
 .list{
@@ -386,7 +437,6 @@ a{
 
 .list li{
   color:#334155;
-  padding-left:0;
   line-height:1.6;
 }
 
@@ -400,13 +450,11 @@ a{
 }
 
 .price-card{
-  position:relative;
   background:#ffffff;
   border:1px solid var(--line);
-  border-radius:24px;
+  border-radius:26px;
   padding:30px 26px;
   box-shadow:0 12px 40px rgba(15,23,42,.06);
-  overflow:hidden;
 }
 
 .price-card.featured{
@@ -474,7 +522,7 @@ a{
 .important-note{
   margin-top:26px;
   padding:18px 20px;
-  border-radius:16px;
+  border-radius:18px;
   background:#f8fafc;
   border:1px solid var(--line);
   color:var(--muted);
@@ -492,8 +540,8 @@ a{
 .cta-box{
   max-width:900px;
   margin:0 auto;
-  padding:40px 28px;
-  border-radius:28px;
+  padding:42px 28px;
+  border-radius:30px;
   background:linear-gradient(180deg,#ffffff 0%, #f7fbff 100%);
   border:1px solid var(--line);
   box-shadow:0 16px 40px rgba(15,23,42,.06);
@@ -545,30 +593,51 @@ a{
   font-size:.92rem;
 }
 
-/* ================= WHATSAPP ================= */
+/* ================= WHATSAPP PRO ================= */
 
 .whatsapp-float{
   position:fixed;
   right:22px;
   bottom:22px;
-  width:62px;
-  height:62px;
-  border-radius:50%;
-  background:#25D366;
-  color:#fff;
+  min-width:168px;
+  height:58px;
+  border-radius:999px;
+  background:#ffffff;
+  color:#111827;
   text-decoration:none;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:28px;
-  box-shadow:0 14px 30px rgba(0,0,0,.18);
+  gap:10px;
+  padding:0 18px;
+  border:1px solid #dbe4ee;
+  box-shadow:0 16px 36px rgba(15,23,42,.14);
   z-index:999;
   transition:transform .18s ease, box-shadow .18s ease;
 }
 
 .whatsapp-float:hover{
-  transform:scale(1.08);
-  box-shadow:0 18px 34px rgba(0,0,0,.24);
+  transform:translateY(-2px);
+  box-shadow:0 20px 40px rgba(15,23,42,.18);
+}
+
+.wa-icon{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  flex-shrink:0;
+}
+
+.wa-text{
+  font-size:.95rem;
+  font-weight:700;
+  color:#0f172a;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -603,8 +672,10 @@ a{
 }
 
 @media (max-width: 640px){
-  .logo-img{
-    height:46px;
+  .brand-logo-wrap{
+    width:58px;
+    height:58px;
+    padding:7px;
   }
 
   .brand-copy strong{
@@ -616,10 +687,14 @@ a{
   }
 
   .whatsapp-float{
-    width:56px;
-    height:56px;
-    font-size:24px;
-    right:16px;
-    bottom:16px;
+    min-width:auto;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    padding:0;
+  }
+
+  .wa-text{
+    display:none;
   }
 }
