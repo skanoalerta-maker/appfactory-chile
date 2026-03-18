@@ -1282,7 +1282,7 @@ img{
   min-width:188px;
   height:60px;
   border-radius:999px;
-  background:linear-gradient(180deg,#ffffff,#f4fbf7);
+  background:rgba(255,255,255,.92);
   color:#0b1522;
   display:flex;
   align-items:center;
@@ -1292,26 +1292,31 @@ img{
   border:1px solid #d9ebe1;
   box-shadow:0 18px 42px rgba(15,23,42,.14);
   z-index:999;
-  transition:transform .18s ease, box-shadow .18s ease;
+  backdrop-filter:blur(10px);
+  transition:transform .25s ease, box-shadow .25s ease;
 }
 
 .whatsapp-float:hover{
-  transform:translateY(-2px);
+  transform:translateY(-3px) scale(1.03);
   box-shadow:0 22px 46px rgba(15,23,42,.18);
 }
 
 .wa-icon{
-  width:36px;
-  height:36px;
+  width:42px;
+  height:42px;
   border-radius:50%;
-  background:linear-gradient(180deg,#2dde72,#25D366);
-  color:#fff;
+  background:#25D366;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:18px;
   flex-shrink:0;
-  box-shadow:0 10px 20px rgba(37,211,102,.24);
+  box-shadow:0 10px 22px rgba(37,211,102,.30);
+}
+
+.wa-icon img{
+  width:22px;
+  height:22px;
+  display:block;
 }
 
 .wa-text{
@@ -1554,5 +1559,15 @@ img{
 
   .wa-text{
     display:none;
+  }
+
+  .wa-icon{
+    width:40px;
+    height:40px;
+  }
+
+  .wa-icon img{
+    width:21px;
+    height:21px;
   }
 }
