@@ -249,6 +249,74 @@
       line-height:1.55;
     }
 
+    .assistant-form{
+      margin-top:18px;
+      display:none;
+      gap:12px;
+      flex-direction:column;
+      padding:16px;
+      border-radius:20px;
+      background:linear-gradient(180deg, rgba(73,182,255,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(73,182,255,.18);
+    }
+
+    .assistant-form.show{
+      display:flex;
+    }
+
+    .assistant-form label{
+      color:#ffffff;
+      font-weight:700;
+      font-size:.92rem;
+      margin-bottom:4px;
+    }
+
+    .assistant-form textarea{
+      width:100%;
+      min-height:120px;
+      resize:vertical;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(7,16,31,.72);
+      color:#ffffff;
+      padding:14px 16px;
+      font-family:inherit;
+      font-size:.95rem;
+      line-height:1.6;
+      outline:none;
+      box-sizing:border-box;
+    }
+
+    .assistant-form textarea::placeholder{
+      color:#8fa3c4;
+    }
+
+    .assistant-form textarea:focus{
+      border-color:rgba(73,182,255,.42);
+      box-shadow:0 0 0 3px rgba(73,182,255,.10);
+    }
+
+    .assistant-interest{
+      display:grid;
+      gap:10px;
+    }
+
+    .assistant-interest-title{
+      color:#ffffff;
+      font-weight:700;
+      font-size:.92rem;
+      margin-top:4px;
+    }
+
+    .interest-options{
+      display:grid;
+      gap:10px;
+    }
+
+    .interest-options button{
+      width:100%;
+    }
+
     /* HEADER AJUSTADO */
     .main-header .header-inner{
       min-height:96px;
@@ -451,12 +519,18 @@
 
       .assistant-options button,
       .assistant-actions a,
-      .assistant-actions button{
+      .assistant-actions button,
+      .interest-options button{
         font-size:.9rem;
         padding:12px 14px;
       }
 
       .assistant-summary{
+        padding:14px;
+        border-radius:16px;
+      }
+
+      .assistant-form{
         padding:14px;
         border-radius:16px;
       }
@@ -619,6 +693,31 @@ Para comenzar, selecciona qué tipo de proyecto te interesa:
 
             <div class="assistant-options" id="options"></div>
 
+            <div class="assistant-form" id="extraForm">
+              <label for="projectNeed">
+                Describe brevemente qué necesitas de nosotros
+              </label>
+              <textarea
+                id="projectNeed"
+                placeholder="Ejemplo: necesito una app para reservas, una página web para mi negocio o un panel para administrar clientes..."
+              ></textarea>
+
+              <div class="assistant-interest">
+                <div class="assistant-interest-title">¿Qué tan interesado estás en avanzar?</div>
+                <div class="interest-options">
+                  <button class="btn btn-secondary" type="button" onclick="chooseInterest('Sí, quiero avanzar pronto')">
+                    ✅ Sí, quiero avanzar pronto
+                  </button>
+                  <button class="btn btn-secondary" type="button" onclick="chooseInterest('Sí, pero aún estoy evaluando')">
+                    📌 Sí, pero aún estoy evaluando
+                  </button>
+                  <button class="btn btn-secondary" type="button" onclick="chooseInterest('Solo quiero orientación inicial')">
+                    ℹ️ Solo quiero orientación inicial
+                  </button>
+                </div>
+              </div>
+            </div>
+
             <div class="assistant-summary" id="summary"></div>
 
             <div class="assistant-actions" id="actions">
@@ -664,12 +763,16 @@ Para comenzar, selecciona qué tipo de proyecto te interesa:
     const actions = document.getElementById("actions");
     const waLink = document.getElementById("waLink");
     const summary = document.getElementById("summary");
+    const extraForm = document.getElementById("extraForm");
+    const projectNeedInput = document.getElementById("projectNeed");
 
     let state = {
       projectType: null,
       clientType: null,
       projectStage: null,
-      urgency: null
+      urgency: null,
+      projectNeed: null,
+      realInterest: null
     };
 
     function addMessage(text, type = "bot") {
@@ -715,6 +818,8 @@ Para comenzar, selecciona qué tipo de proyecto te interesa:
           <li><strong>Tipo de cliente:</strong> ${state.clientType || "-"}</li>
           <li><strong>Estado del proyecto:</strong> ${state.projectStage || "-"}</li>
           <li><strong>Prioridad:</strong> ${state.urgency || "-"}</li>
+          <li><strong>Qué necesita:</strong> ${state.projectNeed || "-"}</li>
+          <li><strong>Nivel de interés:</strong> ${state.realInterest || "-"}</li>
         </ul>
       `;
     }
@@ -724,11 +829,16 @@ Para comenzar, selecciona qué tipo de proyecto te interesa:
         projectType: null,
         clientType: null,
         projectStage: null,
-        urgency: null
+        urgency: null,
+        projectNeed: null,
+        realInterest: null
       };
 
       summary.classList.remove("show");
       summary.innerHTML = "";
+      extraForm.classList.remove("show");
+      projectNeedInput.value = "";
+      options.style.display = "grid";
 
       renderButtons([
         {
@@ -833,8 +943,35 @@ Para comenzar, selecciona qué tipo de proyecto te interesa:
 
       addTyping(() => {
         addMessage(
+          "Perfecto. Ahora cuéntanos brevemente qué necesitas de nosotros y luego selecciona qué tan interesado estás en avanzar."
+        );
+        options.innerHTML = "";
+        options.style.display = "none";
+        extraForm.classList.add("show");
+        projectNeedInput.focus();
+      });
+    }
+
+    function chooseInterest(value) {
+      const projectNeed = projectNeedInput.value.trim();
+
+      if (!projectNeed) {
+        addMessage("Por favor, describe brevemente qué necesitas antes de continuar.", "bot");
+        projectNeedInput.focus();
+        return;
+      }
+
+      state.projectNeed = projectNeed;
+      state.realInterest = value;
+
+      addMessage(projectNeed, "user");
+      addMessage(value, "user");
+
+      addTyping(() => {
+        addMessage(
           "Perfecto. Ya preparé el contexto de tu solicitud para derivarte a WhatsApp de forma más clara."
         );
+        extraForm.classList.remove("show");
         showSummary();
         buildWhatsAppLink();
       });
@@ -848,6 +985,8 @@ Tipo de proyecto: ${state.projectType}
 Tipo de cliente: ${state.clientType}
 Estado del proyecto: ${state.projectStage}
 Prioridad: ${state.urgency}
+Qué necesito: ${state.projectNeed}
+Nivel de interés: ${state.realInterest}
 
 Me gustaría recibir orientación y evaluación comercial.`;
 
@@ -855,6 +994,7 @@ Me gustaría recibir orientación y evaluación comercial.`;
       waLink.href = url;
       actions.classList.add("show");
       options.innerHTML = "";
+      options.style.display = "grid";
     }
 
     function restartAssistant() {
