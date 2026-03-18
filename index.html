@@ -265,6 +265,78 @@
         opacity:1 !important;
       }
     }
+
+    /* =========================================================
+       NUEVA SECCIÓN: CONFIANZA Y MODELO DE TRABAJO
+    ========================================================= */
+
+    .trust-business-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:24px;
+      margin-top:28px;
+    }
+
+    .trust-business-card{
+      min-height:100%;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(16,27,49,.92), rgba(10,18,35,.94));
+      box-shadow:0 20px 44px rgba(0,0,0,.26);
+      padding:26px 24px;
+    }
+
+    .trust-business-icon{
+      width:58px;
+      height:58px;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:26px;
+      margin-bottom:16px;
+      background:linear-gradient(135deg, rgba(10,108,255,.22), rgba(73,182,255,.16));
+      border:1px solid rgba(73,182,255,.18);
+      box-shadow:0 14px 30px rgba(73,182,255,.12);
+    }
+
+    .trust-business-card h3{
+      margin:0 0 12px;
+      font-size:1.18rem;
+      line-height:1.25;
+    }
+
+    .trust-business-card p{
+      margin:0 0 12px;
+      color:rgba(232,240,255,.82);
+      line-height:1.7;
+    }
+
+    .trust-business-note{
+      margin-top:24px;
+    }
+
+    .trust-business-note p{
+      margin:0;
+      line-height:1.7;
+    }
+
+    .trust-business-highlight{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    @media (max-width:980px){
+      .trust-business-grid{
+        grid-template-columns:1fr;
+      }
+
+      .trust-business-highlight{
+        grid-template-columns:1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -687,6 +759,100 @@
         <div class="important-note">
           <strong>Importante:</strong>
           no trabajamos con una tabla rígida igual para todos los casos. Cada propuesta se construye según el alcance real, el nivel de diseño, los módulos necesarios y el objetivo del proyecto.
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         NUEVA SECCIÓN AGREGADA
+    ========================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Confianza y modelo de trabajo</div>
+          <h2>Desarrollamos proyectos con reserva, claridad comercial y estructura definida</h2>
+          <p>
+            Sabemos que muchas ideas de negocio tienen valor desde el primer momento. Por eso,
+            trabajamos con una base profesional que da tranquilidad al cliente, ordena la relación
+            comercial y deja claras las condiciones bajo las cuales evaluamos, diseñamos y desarrollamos cada proyecto.
+          </p>
+        </div>
+
+        <div class="trust-business-grid">
+
+          <article class="trust-business-card glass-card">
+            <div class="trust-business-icon">🤝</div>
+            <h3>Confidencialidad y resguardo de la información</h3>
+            <p>
+              Toda idea, propuesta, documento, flujo, diseño o información entregada por el cliente
+              es tratada con criterio de reserva y uso exclusivo para la evaluación y desarrollo del proyecto.
+            </p>
+            <p>
+              Cuando el caso lo requiera, podrá establecerse un <strong>acuerdo de confidencialidad entre las partes</strong>,
+              con el fin de dar mayor seguridad al proceso y permitir que el cliente comparta su idea
+              con la tranquilidad de que no será divulgada ni utilizada fuera del marco del trabajo acordado.
+            </p>
+          </article>
+
+          <article class="trust-business-card glass-card">
+            <div class="trust-business-icon">💳</div>
+            <h3>Forma de pago y entrega del desarrollo</h3>
+            <p>
+              Trabajamos con una modalidad clara y definida: <strong>50% de pago inicial</strong>
+              para comenzar el proyecto y <strong>50% restante al cierre</strong>.
+            </p>
+            <p>
+              Este esquema permite ordenar el proceso de diseño, desarrollo, estructura, revisiones
+              y avances del trabajo. La <strong>entrega completa del proyecto</strong>, incluyendo archivos,
+              accesos, publicación final o liberación integral del desarrollo, se realiza una vez recibido
+              el pago total pactado entre las partes.
+            </p>
+          </article>
+
+          <article class="trust-business-card glass-card">
+            <div class="trust-business-icon">🚀</div>
+            <h3>Modalidad asociativa para ideas con poco capital</h3>
+            <p>
+              Cuando una idea de negocio tiene potencial, pero el cliente aún no cuenta con el capital suficiente
+              para financiar el desarrollo completo bajo una modalidad tradicional, podemos evaluar un
+              <strong>modelo asociativo</strong>.
+            </p>
+            <p>
+              En ese esquema, nosotros desarrollamos, diseñamos y estructuramos la solución digital, mientras
+              el cliente cubre los gastos necesarios para poner el proyecto en funcionamiento, tales como
+              publicación, registro de marca, trámites ante <strong>INAPI</strong> u otros costos operativos relacionados.
+            </p>
+          </article>
+
+        </div>
+
+        <div class="trust-business-highlight">
+          <div class="important-note trust-business-note">
+            <p>
+              <strong>Distribución referencial:</strong>
+              en proyectos aprobados bajo modalidad asociativa, puede establecerse una división de utilidades de
+              <strong>60% para el cliente y 40% para AppFactory Chile</strong>, según evaluación previa,
+              alcance real, viabilidad y condiciones formales definidas por escrito.
+            </p>
+          </div>
+
+          <div class="important-note trust-business-note">
+            <p>
+              <strong>Estructura mandante:</strong>
+              la dirección, respaldo y marco comercial del desarrollo se mantiene bajo
+              <strong>J-DECH Comercializadora</strong> como empresa mandante, dejando por escrito las condiciones,
+              responsabilidades y alcances antes de iniciar cualquier etapa formal del proyecto.
+            </p>
+          </div>
+        </div>
+
+        <div class="important-note trust-business-note">
+          <p>
+            <strong>Importante:</strong>
+            la modalidad asociativa no aplica automáticamente a todos los casos. Cada idea se evalúa
+            internamente según su potencial comercial, nivel de diferenciación, proyección, costo de desarrollo,
+            viabilidad operativa y compatibilidad con nuestra línea de trabajo.
+          </p>
         </div>
       </div>
     </section>
