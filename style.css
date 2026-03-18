@@ -146,10 +146,35 @@ img{
 .floating-window{
   position:absolute;
   border:1px solid rgba(73,182,255,.14);
-  background:linear-gradient(180deg, rgba(17,30,54,.56), rgba(12,22,42,.32));
-  backdrop-filter:blur(16px);
-  box-shadow:0 18px 46px rgba(0,0,0,.24);
+  background:
+    linear-gradient(180deg, rgba(17,30,54,.62), rgba(12,22,42,.34));
+  backdrop-filter:blur(18px);
+  box-shadow:
+    0 18px 46px rgba(0,0,0,.24),
+    0 0 0 1px rgba(255,255,255,.02) inset,
+    0 0 24px rgba(73,182,255,.05);
   border-radius:22px;
+  overflow:hidden;
+}
+
+.floating-window::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg, rgba(255,255,255,.06), transparent 36%);
+  pointer-events:none;
+}
+
+.floating-window::after{
+  content:"";
+  position:absolute;
+  left:16px;
+  right:16px;
+  top:18px;
+  height:10px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(73,182,255,.30), rgba(255,255,255,.10));
+  opacity:.75;
 }
 
 .fw-1{
@@ -158,7 +183,7 @@ img{
   left:5%;
   top:16%;
   transform:rotate(-7deg);
-  animation:windowDrift 12s ease-in-out infinite;
+  animation:windowDrift 12s ease-in-out infinite, glowWindow 8s ease-in-out infinite;
 }
 
 .fw-2{
@@ -167,7 +192,7 @@ img{
   right:9%;
   top:28%;
   transform:rotate(9deg);
-  animation:windowDriftTwo 14s ease-in-out infinite;
+  animation:windowDriftTwo 14s ease-in-out infinite, glowWindow 9s ease-in-out infinite;
 }
 
 .fw-3{
@@ -176,7 +201,7 @@ img{
   right:18%;
   bottom:12%;
   transform:rotate(-5deg);
-  animation:windowDrift 15s ease-in-out infinite;
+  animation:windowDrift 15s ease-in-out infinite, glowWindow 10s ease-in-out infinite;
 }
 
 /* =========================
@@ -246,7 +271,6 @@ img{
   z-index:2;
 }
 
-/* usa esta clase si tu logo es transparente pero oscuro */
 .logo-img.logo-white{
   filter:
     brightness(0) invert(1)
@@ -273,6 +297,50 @@ img{
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
+}
+
+.header-nav{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  flex:1;
+  justify-content:center;
+}
+
+.header-nav a{
+  color:#dbe9ff;
+  font-size:.95rem;
+  font-weight:700;
+  position:relative;
+  transition:color .18s ease;
+}
+
+.header-nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:100%;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--blue2),var(--blue));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .20s ease;
+}
+
+.header-nav a:hover{
+  color:#ffffff;
+}
+
+.header-nav a:hover::after{
+  transform:scaleX(1);
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
 /* =========================
@@ -544,8 +612,17 @@ img{
   border-radius:30px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.08);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 20px 40px rgba(0,0,0,.20);
   margin:0 24px;
+  background:linear-gradient(180deg,#081221,#0d1931);
+}
+
+.screen-image-parallax{
+  position:absolute;
+  inset:-6%;
+  animation:heroImageFloat 18s ease-in-out infinite;
 }
 
 .tech-image{
@@ -553,7 +630,8 @@ img{
   height:100%;
   object-fit:cover;
   display:block;
-  transform:scale(1.18);
+  transform:scale(1.14);
+  filter:saturate(1.05) contrast(1.02);
 }
 
 .screen-overlay{
@@ -574,6 +652,65 @@ img{
   background:radial-gradient(circle, rgba(73,182,255,.26), transparent 60%);
   filter:blur(18px);
   z-index:2;
+}
+
+.screen-floating-screen{
+  position:absolute;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.08);
+  background:
+    linear-gradient(180deg, rgba(18,30,54,.50), rgba(10,19,36,.26));
+  backdrop-filter:blur(14px);
+  box-shadow:
+    0 14px 32px rgba(0,0,0,.20),
+    0 0 18px rgba(73,182,255,.05);
+  z-index:2;
+}
+
+.screen-floating-screen::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:14px;
+  top:14px;
+  height:8px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(73,182,255,.34), rgba(255,255,255,.10));
+}
+
+.screen-floating-screen::after{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:28%;
+  bottom:14px;
+  height:8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+}
+
+.sf-1{
+  width:120px;
+  height:78px;
+  top:46px;
+  left:26px;
+  animation:screenMiniFloatA 9s ease-in-out infinite;
+}
+
+.sf-2{
+  width:146px;
+  height:92px;
+  right:22px;
+  top:116px;
+  animation:screenMiniFloatB 10s ease-in-out infinite;
+}
+
+.sf-3{
+  width:108px;
+  height:70px;
+  left:60px;
+  bottom:42px;
+  animation:screenMiniFloatC 11s ease-in-out infinite;
 }
 
 .screen-grid-panels{
@@ -985,66 +1122,6 @@ img{
 }
 
 /* =========================
-   SPLIT
-========================= */
-.dark-band{
-  background:
-    radial-gradient(circle at 10% 20%, rgba(73,182,255,.08), transparent 22%),
-    linear-gradient(180deg,#0c172c 0%, #0f1c35 100%);
-}
-
-.split{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-}
-
-.premium-box,
-.info-box{
-  background:linear-gradient(180deg, rgba(16,27,49,.96), rgba(12,22,42,.90));
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:28px;
-  padding:30px 28px;
-  box-shadow:var(--shadow-card);
-  backdrop-filter:blur(12px);
-}
-
-.box-kicker{
-  display:inline-flex;
-  padding:8px 12px;
-  border-radius:999px;
-  background:rgba(73,182,255,.10);
-  border:1px solid rgba(73,182,255,.18);
-  color:#bfe3ff;
-  font-size:.75rem;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.09em;
-  margin-bottom:14px;
-}
-
-.info-box h3{
-  margin:0 0 16px;
-  font-size:1.28rem;
-  line-height:1.28;
-  color:#ffffff;
-}
-
-.list{
-  display:grid;
-  gap:11px;
-  padding:0;
-  margin:0;
-  list-style:none;
-}
-
-.list li{
-  color:#d8e6ff;
-  line-height:1.68;
-  font-size:.97rem;
-}
-
-/* =========================
    PROCESO
 ========================= */
 .process-grid{
@@ -1090,7 +1167,7 @@ img{
 }
 
 /* =========================
-   PRECIOS
+   PRECIOS / COTIZACIÓN
 ========================= */
 .pricing{
   display:grid;
@@ -1139,22 +1216,6 @@ img{
   line-height:1.65;
   min-height:56px;
   font-size:.95rem;
-}
-
-.price{
-  font-size:2rem;
-  font-weight:900;
-  margin-bottom:18px;
-  color:#ffffff;
-  letter-spacing:-.03em;
-}
-
-.price small{
-  display:block;
-  margin-top:7px;
-  font-size:.82rem;
-  font-weight:600;
-  color:var(--muted);
 }
 
 .price-list{
@@ -1326,252 +1387,6 @@ img{
 }
 
 /* =========================
-   ANIMACIONES
-========================= */
-@keyframes floatOrb{
-  0%,100%{ transform:translate3d(0,0,0) scale(1); }
-  50%{ transform:translate3d(0,-16px,0) scale(1.03); }
-}
-
-@keyframes windowDrift{
-  0%,100%{ transform:translateY(0) rotate(-6deg); }
-  50%{ transform:translateY(-12px) rotate(-3deg); }
-}
-
-.fw-2{
-  animation-name:windowDriftTwo;
-}
-
-@keyframes windowDriftTwo{
-  0%,100%{ transform:translateY(0) rotate(8deg); }
-  50%{ transform:translateY(10px) rotate(4deg); }
-}
-
-@keyframes floatCard{
-  0%,100%{ transform:translateY(0px); }
-  50%{ transform:translateY(-12px); }
-}
-
-@keyframes chartMove{
-  0%{ transform:translateY(-50%) translateX(0); }
-  100%{ transform:translateY(-50%) translateX(10px); }
-}
-
-@keyframes pulseRing{
-  0%{
-    transform:scale(.92);
-    opacity:.0;
-  }
-  30%{
-    opacity:.45;
-  }
-  100%{
-    transform:scale(1.08);
-    opacity:0;
-  }
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width:1100px){
-  .hero-ultra-grid,
-  .project-showcase,
-  .impact-grid,
-  .cards-4,
-  .hero-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .project-card-large{
-    grid-row:auto;
-  }
-
-  .hero-cinematic{
-    min-height:auto;
-  }
-
-  .cinematic-stage{
-    min-height:auto;
-  }
-
-  .hero-right{
-    max-width:760px;
-  }
-
-  .trust-strip-inner,
-  .cards-3,
-  .solution-grid,
-  .process-grid,
-  .pricing,
-  .split{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media (max-width:980px){
-  .header-nav{
-    display:none;
-  }
-
-  .hero-ultra-grid,
-  .hero-stats-bar,
-  .project-showcase,
-  .impact-grid,
-  .cards-4,
-  .hero-grid,
-  .pricing,
-  .cards-3,
-  .solution-grid,
-  .process-grid,
-  .split,
-  .hero-metrics,
-  .trust-strip-inner{
-    grid-template-columns:1fr;
-  }
-
-  .hero-ultra-grid,
-  .hero-grid{
-    padding:62px 0 74px;
-  }
-
-  .hero h1{
-    font-size:clamp(2.25rem,8vw,3.9rem);
-  }
-
-  .header-actions{
-    display:none;
-  }
-
-  .price-card.featured{
-    transform:none;
-  }
-
-  .hero-cinematic{
-    min-height:auto;
-  }
-
-  .cinematic-stage{
-    min-height:auto;
-  }
-
-  .floating-ui-card{
-    position:relative;
-    top:auto;
-    left:auto;
-    right:auto;
-    bottom:auto;
-    margin-top:14px;
-    width:100%;
-    min-width:0;
-  }
-
-  .pulse-ring,
-  .fw-1,.fw-2,.fw-3{
-    display:none;
-  }
-}
-
-@media (max-width:640px){
-  .main-header{
-    position:sticky;
-  }
-
-  .header-inner{
-    min-height:92px;
-    gap:14px;
-  }
-
-  .brand{
-    gap:12px;
-  }
-
-  .brand-logo-wrap{
-    width:82px;
-    height:82px;
-    padding:6px;
-    border-radius:20px;
-  }
-
-  .logo-img{
-    transform:scale(1.10);
-  }
-
-  .brand-copy strong{
-    font-size:.95rem;
-  }
-
-  .brand-copy span{
-    font-size:.71rem;
-    white-space:normal;
-  }
-
-  .section,
-  .cta{
-    padding:72px 0;
-  }
-
-  .hero-ultra-grid,
-  .hero-grid{
-    padding:52px 0 64px;
-  }
-
-  .hero-kicker,
-  .section-kicker,
-  .badge,
-  .box-kicker{
-    font-size:.70rem;
-  }
-
-  .glass-card,
-  .solution-card,
-  .process-card,
-  .info-box,
-  .price-card,
-  .cta-box,
-  .main-showcase,
-  .screen-main,
-  .project-card,
-  .impact-card{
-    border-radius:24px;
-  }
-
-  .screen-display{
-    height:320px;
-    margin:0 16px;
-  }
-
-  .screen-grid-panels{
-    margin:16px 16px 16px;
-  }
-
-  .screen-head{
-    padding:18px 16px 0;
-  }
-
-  .whatsapp-float{
-    min-width:auto;
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    padding:0;
-  }
-
-  .wa-text{
-    display:none;
-  }
-
-  .wa-icon{
-    width:40px;
-    height:40px;
-  }
-
-  .wa-icon img{
-    width:21px;
-    height:21px;
-  }
-}
-/* =========================
    PRICING SKANO MOTION BG
 ========================= */
 .pricing-skano-bg{
@@ -1628,11 +1443,420 @@ img{
   animation-delay:-4s;
 }
 
+/* =========================
+   ANIMACIONES
+========================= */
+@keyframes floatOrb{
+  0%,100%{ transform:translate3d(0,0,0) scale(1); }
+  50%{ transform:translate3d(0,-16px,0) scale(1.03); }
+}
+
+@keyframes windowDrift{
+  0%,100%{ transform:translateY(0) rotate(-6deg); }
+  50%{ transform:translateY(-12px) rotate(-3deg); }
+}
+
+@keyframes windowDriftTwo{
+  0%,100%{ transform:translateY(0) rotate(8deg); }
+  50%{ transform:translateY(10px) rotate(4deg); }
+}
+
+@keyframes floatCard{
+  0%,100%{ transform:translateY(0px); }
+  50%{ transform:translateY(-12px); }
+}
+
+@keyframes pulseRing{
+  0%{
+    transform:scale(.92);
+    opacity:.0;
+  }
+  30%{
+    opacity:.45;
+  }
+  100%{
+    transform:scale(1.08);
+    opacity:0;
+  }
+}
+
 @keyframes pricingFloat{
   0%,100%{
     transform:translateY(0) translateX(0) scale(1);
   }
   50%{
     transform:translateY(-18px) translateX(8px) scale(1.04);
+  }
+}
+
+@keyframes glowWindow{
+  0%,100%{
+    box-shadow:
+      0 18px 46px rgba(0,0,0,.24),
+      0 0 0 1px rgba(255,255,255,.02) inset,
+      0 0 18px rgba(73,182,255,.04);
+  }
+  50%{
+    box-shadow:
+      0 22px 54px rgba(0,0,0,.30),
+      0 0 0 1px rgba(255,255,255,.03) inset,
+      0 0 28px rgba(73,182,255,.10);
+  }
+}
+
+@keyframes heroImageFloat{
+  0%,100%{
+    transform:translate3d(0,0,0) scale(1.02);
+  }
+  25%{
+    transform:translate3d(-10px,-8px,0) scale(1.05);
+  }
+  50%{
+    transform:translate3d(10px,-14px,0) scale(1.06);
+  }
+  75%{
+    transform:translate3d(-6px,4px,0) scale(1.04);
+  }
+}
+
+@keyframes screenMiniFloatA{
+  0%,100%{
+    transform:translateY(0) rotate(-3deg);
+  }
+  50%{
+    transform:translateY(-12px) rotate(-1deg);
+  }
+}
+
+@keyframes screenMiniFloatB{
+  0%,100%{
+    transform:translateY(0) rotate(4deg);
+  }
+  50%{
+    transform:translateY(10px) rotate(1deg);
+  }
+}
+
+@keyframes screenMiniFloatC{
+  0%,100%{
+    transform:translateY(0) rotate(-4deg);
+  }
+  50%{
+    transform:translateY(-10px) rotate(-2deg);
+  }
+}
+
+@keyframes floatSoftA{
+  0%,100%{ transform:translate3d(0,0,0); }
+  50%{ transform:translate3d(0,-10px,0); }
+}
+
+@keyframes floatSoftB{
+  0%,100%{ transform:translate3d(0,0,0); }
+  50%{ transform:translate3d(8px,-8px,0); }
+}
+
+@keyframes floatSoftC{
+  0%,100%{ transform:translate3d(0,0,0); }
+  50%{ transform:translate3d(-8px,-12px,0); }
+}
+
+@keyframes glowPulse{
+  0%,100%{
+    box-shadow:
+      0 18px 42px rgba(0,0,0,.28),
+      0 0 0 rgba(73,182,255,0);
+  }
+  50%{
+    box-shadow:
+      0 22px 54px rgba(0,0,0,.34),
+      0 0 24px rgba(73,182,255,.08);
+  }
+}
+
+/* hover premium */
+.glass-card,
+.project-card,
+.impact-card,
+.process-card,
+.price-card,
+.hero-stat,
+.ui-panel,
+.floating-ui-card,
+.trust-strip-inner span{
+  transition:
+    transform .28s ease,
+    box-shadow .28s ease,
+    border-color .28s ease,
+    background .28s ease;
+}
+
+.glass-card:hover,
+.project-card:hover,
+.impact-card:hover,
+.process-card:hover,
+.price-card:hover,
+.hero-stat:hover,
+.ui-panel:hover,
+.floating-ui-card:hover,
+.trust-strip-inner span:hover{
+  transform:translateY(-6px);
+  border-color:rgba(73,182,255,.24);
+  box-shadow:
+    0 24px 52px rgba(0,0,0,.30),
+    0 0 24px rgba(73,182,255,.08);
+}
+
+/* movimiento elegante */
+.hero-stat:nth-child(1){ animation:floatSoftA 7s ease-in-out infinite; }
+.hero-stat:nth-child(2){ animation:floatSoftB 8s ease-in-out infinite; }
+.hero-stat:nth-child(3){ animation:floatSoftC 7.5s ease-in-out infinite; }
+.hero-stat:nth-child(4){ animation:floatSoftA 9s ease-in-out infinite; }
+
+.cards-4 .glass-card:nth-child(1){ animation:floatSoftA 7s ease-in-out infinite; }
+.cards-4 .glass-card:nth-child(2){ animation:floatSoftB 8s ease-in-out infinite; }
+.cards-4 .glass-card:nth-child(3){ animation:floatSoftC 7.5s ease-in-out infinite; }
+.cards-4 .glass-card:nth-child(4){ animation:floatSoftA 8.8s ease-in-out infinite; }
+
+.project-showcase .project-card:nth-child(1){ animation:floatSoftA 8s ease-in-out infinite; }
+.project-showcase .project-card:nth-child(2){ animation:floatSoftB 7.5s ease-in-out infinite; }
+.project-showcase .project-card:nth-child(3){ animation:floatSoftC 8.5s ease-in-out infinite; }
+.project-showcase .project-card:nth-child(4){ animation:floatSoftA 9s ease-in-out infinite; }
+.project-showcase .project-card:nth-child(5){ animation:floatSoftB 8.2s ease-in-out infinite; }
+
+.impact-grid .impact-card:nth-child(1){ animation:floatSoftA 8s ease-in-out infinite; }
+.impact-grid .impact-card:nth-child(2){ animation:floatSoftB 9s ease-in-out infinite; }
+.impact-grid .impact-card:nth-child(3){ animation:floatSoftC 8.6s ease-in-out infinite; }
+.impact-grid .impact-card:nth-child(4){ animation:floatSoftA 9.2s ease-in-out infinite; }
+
+.process-grid .process-card:nth-child(1){ animation:floatSoftA 8s ease-in-out infinite; }
+.process-grid .process-card:nth-child(2){ animation:floatSoftB 8.8s ease-in-out infinite; }
+.process-grid .process-card:nth-child(3){ animation:floatSoftC 8.2s ease-in-out infinite; }
+.process-grid .process-card:nth-child(4){ animation:floatSoftA 9s ease-in-out infinite; }
+
+.pricing .price-card:nth-child(1){ animation:floatSoftA 8.5s ease-in-out infinite; }
+.pricing .price-card:nth-child(2){ animation:floatSoftB 7.5s ease-in-out infinite; }
+.pricing .price-card:nth-child(3){ animation:floatSoftC 8.8s ease-in-out infinite; }
+
+.trust-strip-inner span:nth-child(1){ animation:floatSoftA 8s ease-in-out infinite; }
+.trust-strip-inner span:nth-child(2){ animation:floatSoftB 9s ease-in-out infinite; }
+.trust-strip-inner span:nth-child(3){ animation:floatSoftC 8.3s ease-in-out infinite; }
+.trust-strip-inner span:nth-child(4){ animation:floatSoftA 9.2s ease-in-out infinite; }
+
+.screen-grid-panels .ui-panel:nth-child(1){ animation:floatSoftA 8s ease-in-out infinite; }
+.screen-grid-panels .ui-panel:nth-child(2){ animation:floatSoftB 8.8s ease-in-out infinite; }
+.screen-grid-panels .ui-panel:nth-child(3){ animation:floatSoftC 9.2s ease-in-out infinite; }
+
+.ui-card-1{
+  animation:floatSoftA 6s ease-in-out infinite, glowPulse 6s ease-in-out infinite;
+}
+
+.ui-card-2{
+  animation:floatSoftB 7s ease-in-out infinite, glowPulse 7s ease-in-out infinite;
+}
+
+.ui-card-3{
+  animation:floatSoftC 8s ease-in-out infinite, glowPulse 8s ease-in-out infinite;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width:1100px){
+  .hero-ultra-grid,
+  .project-showcase,
+  .impact-grid,
+  .cards-4{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .project-card-large{
+    grid-row:auto;
+  }
+
+  .hero-cinematic{
+    min-height:auto;
+  }
+
+  .cinematic-stage{
+    min-height:auto;
+  }
+
+  .hero-right{
+    max-width:760px;
+  }
+
+  .trust-strip-inner,
+  .pricing{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:980px){
+  .header-nav{
+    display:none;
+  }
+
+  .hero-ultra-grid,
+  .hero-stats-bar,
+  .project-showcase,
+  .impact-grid,
+  .cards-4,
+  .pricing,
+  .trust-strip-inner,
+  .process-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-ultra-grid{
+    padding:62px 0 74px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.25rem,8vw,3.9rem);
+  }
+
+  .header-actions{
+    display:none;
+  }
+
+  .price-card.featured{
+    transform:none;
+  }
+
+  .hero-cinematic,
+  .cinematic-stage{
+    min-height:auto;
+  }
+
+  .floating-ui-card{
+    position:relative;
+    top:auto;
+    left:auto;
+    right:auto;
+    bottom:auto;
+    margin-top:14px;
+    width:100%;
+    min-width:0;
+  }
+
+  .screen-floating-screen{
+    display:none;
+  }
+
+  .screen-image-parallax{
+    animation:none;
+  }
+
+  .glass-card,
+  .project-card,
+  .impact-card,
+  .process-card,
+  .price-card,
+  .hero-stat,
+  .ui-panel,
+  .floating-ui-card,
+  .trust-strip-inner span{
+    animation:none !important;
+  }
+
+  .pulse-ring,
+  .fw-1,.fw-2,.fw-3{
+    display:none;
+  }
+}
+
+@media (max-width:640px){
+  .main-header{
+    position:sticky;
+  }
+
+  .header-inner{
+    min-height:92px;
+    gap:14px;
+  }
+
+  .brand{
+    gap:12px;
+  }
+
+  .brand-logo-wrap{
+    width:82px;
+    height:82px;
+    padding:6px;
+    border-radius:20px;
+  }
+
+  .logo-img{
+    transform:scale(1.10);
+  }
+
+  .brand-copy strong{
+    font-size:.95rem;
+  }
+
+  .brand-copy span{
+    font-size:.71rem;
+    white-space:normal;
+  }
+
+  .section,
+  .cta{
+    padding:72px 0;
+  }
+
+  .hero-ultra-grid{
+    padding:52px 0 64px;
+  }
+
+  .hero-kicker,
+  .section-kicker,
+  .badge{
+    font-size:.70rem;
+  }
+
+  .glass-card,
+  .process-card,
+  .price-card,
+  .cta-box,
+  .screen-main,
+  .project-card,
+  .impact-card{
+    border-radius:24px;
+  }
+
+  .screen-display{
+    height:320px;
+    margin:0 16px;
+  }
+
+  .screen-grid-panels{
+    margin:16px 16px 16px;
+  }
+
+  .screen-head{
+    padding:18px 16px 0;
+  }
+
+  .whatsapp-float{
+    min-width:auto;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    padding:0;
+  }
+
+  .wa-text{
+    display:none;
+  }
+
+  .wa-icon{
+    width:40px;
+    height:40px;
+  }
+
+  .wa-icon img{
+    width:21px;
+    height:21px;
   }
 }
