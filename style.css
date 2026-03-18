@@ -1589,3 +1589,68 @@ img{
     height:21px;
   }
 }
+/* =========================
+   PRICING SKANO MOTION BG
+========================= */
+.pricing-skano-bg{
+  position:relative;
+  overflow:hidden;
+}
+
+.pricing-skano-bg .container{
+  position:relative;
+  z-index:2;
+}
+
+.pricing-bg{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+  overflow:hidden;
+}
+
+.pricing-grid-lines{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(73,182,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(73,182,255,.06) 1px, transparent 1px);
+  background-size:42px 42px;
+  opacity:.45;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.25));
+}
+
+.pricing-orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(24px);
+  opacity:.55;
+  animation:pricingFloat 10s ease-in-out infinite;
+}
+
+.pricing-orb-1{
+  width:320px;
+  height:320px;
+  top:-60px;
+  left:-60px;
+  background:radial-gradient(circle, rgba(73,182,255,.28), transparent 68%);
+}
+
+.pricing-orb-2{
+  width:280px;
+  height:280px;
+  right:-40px;
+  bottom:-40px;
+  background:radial-gradient(circle, rgba(10,108,255,.24), transparent 70%);
+  animation-delay:-4s;
+}
+
+@keyframes pricingFloat{
+  0%,100%{
+    transform:translateY(0) translateX(0) scale(1);
+  }
+  50%{
+    transform:translateY(-18px) translateX(8px) scale(1.04);
+  }
+}
