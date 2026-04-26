@@ -831,6 +831,130 @@
       transform:translateY(0);
     }
 
+
+
+    /* =========================================================
+       PROYECTOS REALES
+    ========================================================= */
+
+    .portfolio-section{
+      background:#ffffff;
+    }
+
+    .portfolio-live-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:26px;
+      margin-top:34px;
+      align-items:stretch;
+    }
+
+    .portfolio-live-card{
+      background:#ffffff;
+      border:1px solid var(--line);
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:var(--shadow-md);
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .portfolio-live-card:hover{
+      transform:translateY(-5px);
+      border-color:#c9d7ef;
+      box-shadow:0 24px 58px rgba(16,24,40,.12);
+    }
+
+    .browser-bar{
+      min-height:44px;
+      background:#f8fafc;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:0 14px;
+    }
+
+    .browser-bar span{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:#cbd5e1;
+      flex:0 0 auto;
+    }
+
+    .browser-bar small{
+      margin-left:10px;
+      color:#64748b;
+      font-size:.78rem;
+      font-weight:800;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .portfolio-frame-wrap{
+      height:310px;
+      overflow:hidden;
+      background:#eef4ff;
+      border-bottom:1px solid var(--line);
+      position:relative;
+    }
+
+    .portfolio-frame-wrap iframe{
+      width:122%;
+      height:122%;
+      border:0;
+      transform:scale(.82);
+      transform-origin:top left;
+      background:#ffffff;
+    }
+
+    .portfolio-live-content{
+      padding:26px;
+    }
+
+    .portfolio-live-content span{
+      display:inline-flex;
+      width:max-content;
+      padding:7px 10px;
+      border-radius:999px;
+      background:var(--primary-soft);
+      color:var(--primary-dark);
+      font-weight:900;
+      font-size:.74rem;
+      margin-bottom:12px;
+    }
+
+    .portfolio-live-content h3{
+      margin:0 0 10px;
+      font-size:1.55rem;
+      line-height:1.12;
+      letter-spacing:-.035em;
+      color:var(--text);
+    }
+
+    .portfolio-live-content p{
+      margin:0 0 20px;
+      color:var(--muted-2);
+      line-height:1.68;
+      font-size:.97rem;
+    }
+
+    .portfolio-live-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .portfolio-note{
+      margin-top:24px;
+      text-align:center;
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.6;
+    }
+
     @media (max-width:1080px){
       .header-nav{
         display:none;
@@ -852,7 +976,8 @@
       }
 
       .pricing,
-      .trust-business-grid{
+      .trust-business-grid,
+      .portfolio-live-grid{
         grid-template-columns:1fr;
       }
 
@@ -934,6 +1059,10 @@
         height:220px;
       }
 
+      .portfolio-frame-wrap{
+        height:250px;
+      }
+
       .section{
         padding:62px 0;
       }
@@ -1002,6 +1131,7 @@
       <nav class="header-nav" aria-label="Principal">
         <a href="#servicios">Servicios</a>
         <a href="#soluciones">Soluciones</a>
+        <a href="#proyectos">Proyectos reales</a>
         <a href="#proceso">Proceso</a>
         <a href="#cotizacion">Cotización</a>
       </nav>
@@ -1218,6 +1348,91 @@
             <p>Plataformas más robustas para proyectos que necesitan crecer con estructura.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+
+
+    <section id="proyectos" class="section portfolio-section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Proyectos reales</div>
+          <h2>Desarrollos creados por AppFactory Chile</h2>
+          <p>
+            Mostramos proyectos reales, no solo promesas. Estas plataformas reflejan trabajo aplicado en diseño,
+            desarrollo, estructura comercial, experiencia de usuario y publicación web.
+          </p>
+        </div>
+
+        <div class="portfolio-live-grid">
+
+          <article class="portfolio-live-card">
+            <div class="browser-bar" aria-hidden="true">
+              <span></span><span></span><span></span>
+              <small>skano.cl</small>
+            </div>
+
+            <div class="portfolio-frame-wrap">
+              <iframe
+                src="https://skano.cl"
+                title="Vista previa del sitio SKANO"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+
+            <div class="portfolio-live-content">
+              <span>App móvil + sitio web + operación</span>
+              <h3>SKANO</h3>
+              <p>
+                Plataforma enfocada en detección y reporte de vehículos robados, con presencia web,
+                app móvil, flujo de usuarios, lógica de seguridad y gestión administrativa.
+              </p>
+
+              <div class="portfolio-live-actions">
+                <a href="https://skano.cl" target="_blank" rel="noopener" class="btn btn-primary">
+                  Ver proyecto real
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-live-card">
+            <div class="browser-bar" aria-hidden="true">
+              <span></span><span></span><span></span>
+              <small>skanoalerta-maker.github.io/nebula</small>
+            </div>
+
+            <div class="portfolio-frame-wrap">
+              <iframe
+                src="https://skanoalerta-maker.github.io/nebula"
+                title="Vista previa de la plataforma Nébula"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+
+            <div class="portfolio-live-content">
+              <span>Plataforma web de contenido</span>
+              <h3>Nébula</h3>
+              <p>
+                Plataforma digital de historias por capítulos, con catálogo, experiencia de lectura,
+                estructura de usuarios, contenido premium y diseño orientado a consumo digital.
+              </p>
+
+              <div class="portfolio-live-actions">
+                <a href="https://skanoalerta-maker.github.io/nebula" target="_blank" rel="noopener" class="btn btn-primary">
+                  Ver plataforma real
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="portfolio-note">
+          Si una vista previa no carga dentro del recuadro por configuración de seguridad externa, el botón permite abrir el proyecto real en una nueva pestaña.
+        </p>
       </div>
     </section>
 
@@ -1500,7 +1715,7 @@
   <script>
     (function () {
       const revealTargets = document.querySelectorAll(
-        '.hero-stat, .ui-panel, .trust-strip-inner span, .card, .project-card, .impact-card, .process-card, .price-card, .trust-business-card, .important-note, .cta-box'
+        '.hero-stat, .ui-panel, .trust-strip-inner span, .card, .project-card, .portfolio-live-card, .impact-card, .process-card, .price-card, .trust-business-card, .important-note, .cta-box'
       );
 
       revealTargets.forEach((el) => {
