@@ -1110,6 +1110,213 @@
         transform:none !important;
       }
     }
+
+
+    /* =========================================================
+       AJUSTE VISUAL PREMIUM: MENOS BLANCO, MÁS CORPORATIVO
+       Mantiene una estética limpia, pero con contraste profesional.
+    ========================================================= */
+
+    body{
+      background:#f3f6fb;
+    }
+
+    .main-header{
+      background:rgba(255,255,255,.94);
+      box-shadow:0 10px 30px rgba(16,24,40,.04);
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(10,108,255,.18), transparent 30%),
+        radial-gradient(circle at 90% 12%, rgba(18,183,106,.10), transparent 28%),
+        linear-gradient(135deg,#f8fbff 0%,#eef4ff 52%,#f7fafc 100%);
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:auto -10% -42% -10%;
+      height:260px;
+      background:linear-gradient(90deg, rgba(10,108,255,.12), rgba(17,24,39,.08), rgba(10,108,255,.05));
+      filter:blur(20px);
+      pointer-events:none;
+    }
+
+    .hero-left,
+    .hero-right{
+      position:relative;
+      z-index:2;
+    }
+
+    .hero-kicker,
+    .section-kicker{
+      box-shadow:0 8px 20px rgba(10,108,255,.08);
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);
+      border-color:#d9e3f3;
+      box-shadow:0 28px 70px rgba(15,23,42,.14);
+    }
+
+    .screen-display{
+      background:#dfeaff;
+    }
+
+    .section{
+      background:#ffffff;
+    }
+
+    .section.alt,
+    .section-contrast{
+      background:linear-gradient(180deg,#f4f7fb 0%,#eef3f9 100%);
+    }
+
+    .trust-strip{
+      background:#f8fafc;
+    }
+
+    .trust-strip-inner span{
+      background:#ffffff;
+      border-color:#d9e3f3;
+    }
+
+    .card,
+    .project-card,
+    .impact-card,
+    .process-card,
+    .price-card,
+    .trust-business-card,
+    .important-note{
+      border-color:#dfe7f3;
+    }
+
+    .card,
+    .project-card,
+    .impact-card,
+    .process-card,
+    .price-card,
+    .trust-business-card{
+      box-shadow:0 14px 34px rgba(16,24,40,.065);
+    }
+
+    .project-card-large{
+      background:
+        linear-gradient(135deg, rgba(10,108,255,.14), rgba(255,255,255,.72) 58%),
+        #ffffff;
+    }
+
+    .portfolio-section{
+      background:
+        radial-gradient(circle at 12% 8%, rgba(10,108,255,.22), transparent 30%),
+        radial-gradient(circle at 92% 18%, rgba(73,182,255,.12), transparent 26%),
+        linear-gradient(135deg,#0f172a 0%,#111827 52%,#172554 100%);
+      color:#ffffff;
+    }
+
+    .portfolio-section .section-kicker{
+      background:rgba(255,255,255,.10);
+      color:#dbeafe;
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .portfolio-section .section-head h2{
+      color:#ffffff;
+    }
+
+    .portfolio-section .section-head p,
+    .portfolio-note{
+      color:rgba(226,232,240,.82);
+    }
+
+    .portfolio-live-card{
+      background:#ffffff;
+      border-color:rgba(255,255,255,.14);
+      box-shadow:0 28px 70px rgba(0,0,0,.28);
+    }
+
+    .browser-bar{
+      background:#f8fafc;
+    }
+
+    .portfolio-live-content{
+      color:var(--text);
+    }
+
+    .pricing{
+      align-items:stretch;
+    }
+
+    .price-card.featured{
+      background:
+        linear-gradient(180deg, rgba(10,108,255,.08), rgba(255,255,255,1) 42%),
+        #ffffff;
+    }
+
+    .cta{
+      background:#f3f6fb;
+    }
+
+    .cta-box{
+      color:#ffffff;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(10,108,255,.34), transparent 32%),
+        radial-gradient(circle at 88% 12%, rgba(37,211,102,.16), transparent 28%),
+        linear-gradient(135deg,#101828 0%,#111827 48%,#0b3b85 100%);
+      border-color:rgba(255,255,255,.12);
+      box-shadow:0 28px 70px rgba(15,23,42,.22);
+    }
+
+    .cta-box h2,
+    .cta-box .section-kicker{
+      color:#ffffff;
+    }
+
+    .cta-box p{
+      color:rgba(226,232,240,.84);
+    }
+
+    .cta-box .section-kicker{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .cta-box .btn-secondary{
+      background:rgba(255,255,255,.10);
+      color:#ffffff;
+      border-color:rgba(255,255,255,.24);
+      box-shadow:none;
+    }
+
+    .footer{
+      background:#0f172a;
+      color:#cbd5e1;
+      border-top:0;
+    }
+
+    .footer-copy strong{
+      color:#ffffff;
+    }
+
+    .footer-links span{
+      background:rgba(255,255,255,.08);
+      border-color:rgba(255,255,255,.12);
+      color:#dbeafe;
+    }
+
+    @media (max-width:760px){
+      .hero{
+        background:linear-gradient(180deg,#f8fbff 0%,#edf4ff 100%);
+      }
+
+      .portfolio-section{
+        background:linear-gradient(180deg,#0f172a 0%,#172554 100%);
+      }
+    }
+
   </style>
 </head>
 <body>
