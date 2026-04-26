@@ -11,7 +11,7 @@
     content="Diseñamos páginas web, aplicaciones móviles, paneles administrativos y soluciones digitales a medida para empresas, pymes y emprendedores en Chile. Desarrollo profesional respaldado por D&H."
   />
 
-  <meta name="theme-color" content="#0A6CFF" />
+  <meta name="theme-color" content="#ffffff" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,345 +20,977 @@
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="style.css" />
-
   <style>
-    /* =========================================================
-       MEJORAS IN-SITU TIPO SKANO
-    ========================================================= */
-
-    .glass-card,
-    .solution-card,
-    .process-card,
-    .price-card,
-    .project-card,
-    .impact-card,
-    .hero-stat,
-    .ui-panel,
-    .floating-ui-card,
-    .trust-strip-inner span,
-    .cta-box,
-    .important-note {
-      position: relative;
-      overflow: hidden;
-      transition:
-        transform .38s cubic-bezier(.2,.8,.2,1),
-        box-shadow .38s cubic-bezier(.2,.8,.2,1),
-        border-color .38s ease,
-        background .38s ease,
-        opacity .38s ease;
-      will-change: transform, box-shadow, opacity;
+    :root{
+      --bg:#ffffff;
+      --bg-soft:#f6f8fb;
+      --bg-soft-2:#eef4ff;
+      --text:#101828;
+      --muted:#667085;
+      --muted-2:#475467;
+      --line:#e5e7eb;
+      --line-strong:#d0d5dd;
+      --primary:#0A6CFF;
+      --primary-dark:#064fc0;
+      --primary-soft:#e8f1ff;
+      --dark:#111827;
+      --success:#12b76a;
+      --shadow-sm:0 8px 24px rgba(16,24,40,.06);
+      --shadow-md:0 18px 45px rgba(16,24,40,.10);
+      --radius:22px;
+      --radius-sm:14px;
+      --container:1180px;
     }
 
-    .glass-card::after,
-    .solution-card::after,
-    .process-card::after,
-    .price-card::after,
-    .project-card::after,
-    .impact-card::after,
-    .hero-stat::after,
-    .ui-panel::after,
-    .floating-ui-card::after,
-    .cta-box::after,
-    .important-note::after {
-      content:"";
-      position:absolute;
-      inset:-1px;
-      border-radius:inherit;
-      pointer-events:none;
-      background:linear-gradient(
-        135deg,
-        rgba(73,182,255,.18) 0%,
-        rgba(73,182,255,0) 30%,
-        rgba(255,255,255,.04) 55%,
-        rgba(73,182,255,.10) 100%
-      );
-      opacity:0;
-      transition:opacity .35s ease;
-      z-index:1;
+    *{
+      box-sizing:border-box;
     }
 
-    .glass-card::before,
-    .solution-card::before,
-    .process-card::before,
-    .price-card::before,
-    .project-card::before,
-    .impact-card::before,
-    .hero-stat::before,
-    .ui-panel::before,
-    .floating-ui-card::before,
-    .cta-box::before,
-    .important-note::before {
-      content:"";
-      position:absolute;
-      top:-120%;
-      left:-35%;
-      width:45%;
-      height:300%;
-      transform:rotate(18deg);
-      background:linear-gradient(
-        to right,
-        rgba(255,255,255,0),
-        rgba(255,255,255,.12),
-        rgba(255,255,255,0)
-      );
-      opacity:0;
-      transition:left .7s ease, opacity .35s ease;
-      pointer-events:none;
-      z-index:2;
+    html{
+      scroll-behavior:smooth;
     }
 
-    .glass-card > *,
-    .solution-card > *,
-    .process-card > *,
-    .price-card > *,
-    .project-card > *,
-    .impact-card > *,
-    .hero-stat > *,
-    .ui-panel > *,
-    .floating-ui-card > *,
-    .cta-box > *,
-    .important-note > * {
-      position: relative;
-      z-index: 3;
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
 
-    .glass-card:hover,
-    .solution-card:hover,
-    .process-card:hover,
-    .price-card:hover,
-    .project-card:hover,
-    .impact-card:hover,
-    .hero-stat:hover,
-    .ui-panel:hover,
-    .floating-ui-card:hover,
-    .trust-strip-inner span:hover,
-    .cta-box:hover,
-    .important-note:hover {
-      transform:translateY(-8px) scale(1.012);
-      border-color:rgba(73,182,255,.28);
-      box-shadow:
-        0 24px 52px rgba(0,0,0,.30),
-        0 0 0 1px rgba(73,182,255,.18),
-        0 0 28px rgba(73,182,255,.08);
+    img{
+      max-width:100%;
+      display:block;
     }
 
-    .glass-card:hover::after,
-    .solution-card:hover::after,
-    .process-card:hover::after,
-    .price-card:hover::after,
-    .project-card:hover::after,
-    .impact-card:hover::after,
-    .hero-stat:hover::after,
-    .ui-panel:hover::after,
-    .floating-ui-card:hover::after,
-    .cta-box:hover::after,
-    .important-note:hover::after {
-      opacity:1;
+    a{
+      color:inherit;
+      text-decoration:none;
     }
 
-    .glass-card:hover::before,
-    .solution-card:hover::before,
-    .process-card:hover::before,
-    .price-card:hover::before,
-    .project-card:hover::before,
-    .impact-card:hover::before,
-    .hero-stat:hover::before,
-    .ui-panel:hover::before,
-    .floating-ui-card:hover::before,
-    .cta-box:hover::before,
-    .important-note:hover::before {
-      left:120%;
-      opacity:1;
+    .container{
+      width:min(var(--container), calc(100% - 40px));
+      margin-inline:auto;
     }
 
-    .icon-wrap,
-    .step,
-    .wa-icon {
-      transition:
-        transform .35s ease,
-        box-shadow .35s ease,
-        filter .35s ease;
-      will-change: transform;
+    .main-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(229,231,235,.9);
     }
 
-    .glass-card:hover .icon-wrap,
-    .solution-card:hover .icon-wrap,
-    .process-card:hover .step {
-      transform:translateY(-4px) scale(1.08);
-      box-shadow:0 12px 28px rgba(73,182,255,.25);
-      filter:drop-shadow(0 8px 18px rgba(73,182,255,.18));
+    .header-inner{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
     }
 
-    .reveal-up {
-      opacity: 0;
-      transform: translateY(34px) scale(.985);
-      transition:
-        opacity .8s cubic-bezier(.2,.8,.2,1),
-        transform .8s cubic-bezier(.2,.8,.2,1);
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
     }
 
-    .reveal-up.is-visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .reveal-delay-1 { transition-delay: .05s; }
-    .reveal-delay-2 { transition-delay: .10s; }
-    .reveal-delay-3 { transition-delay: .15s; }
-    .reveal-delay-4 { transition-delay: .20s; }
-    .reveal-delay-5 { transition-delay: .25s; }
-    .reveal-delay-6 { transition-delay: .30s; }
-
-    @media (min-width:901px){
-      .float-soft-a { animation: floatSoftA2 8s ease-in-out infinite; }
-      .float-soft-b { animation: floatSoftB2 9s ease-in-out infinite; }
-      .float-soft-c { animation: floatSoftC2 8.5s ease-in-out infinite; }
-    }
-
-    @keyframes floatSoftA2{
-      0%,100%{ transform:translateY(0); }
-      50%{ transform:translateY(-10px); }
-    }
-
-    @keyframes floatSoftB2{
-      0%,100%{ transform:translateY(0); }
-      50%{ transform:translateY(8px); }
-    }
-
-    @keyframes floatSoftC2{
-      0%,100%{ transform:translateY(0); }
-      50%{ transform:translateY(-12px); }
-    }
-
-    @media (max-width:980px){
-      .float-soft-a,
-      .float-soft-b,
-      .float-soft-c{
-        animation:none !important;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      .glass-card,
-      .solution-card,
-      .process-card,
-      .price-card,
-      .project-card,
-      .impact-card,
-      .hero-stat,
-      .ui-panel,
-      .floating-ui-card,
-      .trust-strip-inner span,
-      .cta-box,
-      .important-note,
-      .reveal-up,
-      .float-soft-a,
-      .float-soft-b,
-      .float-soft-c,
-      .icon-wrap,
-      .step,
-      .wa-icon{
-        animation:none !important;
-        transition:none !important;
-        transform:none !important;
-        opacity:1 !important;
-      }
-    }
-
-    /* =========================================================
-       NUEVA SECCIÓN: CONFIANZA Y MODELO DE TRABAJO
-    ========================================================= */
-
-    .trust-business-grid{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:24px;
-      margin-top:28px;
-    }
-
-    .trust-business-card{
-      min-height:100%;
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px;
-      background:linear-gradient(180deg, rgba(16,27,49,.92), rgba(10,18,35,.94));
-      box-shadow:0 20px 44px rgba(0,0,0,.26);
-      padding:26px 24px;
-    }
-
-    .trust-business-icon{
-      width:58px;
-      height:58px;
-      border-radius:18px;
+    .brand-logo-wrap{
+      width:54px;
+      height:54px;
+      border-radius:16px;
+      background:#ffffff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-sm);
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:26px;
-      margin-bottom:16px;
-      background:linear-gradient(135deg, rgba(10,108,255,.22), rgba(73,182,255,.16));
-      border:1px solid rgba(73,182,255,.18);
-      box-shadow:0 14px 30px rgba(73,182,255,.12);
+      padding:8px;
+      flex:0 0 auto;
     }
 
-    .trust-business-card h3{
-      margin:0 0 12px;
-      font-size:1.18rem;
-      line-height:1.25;
+    .logo-img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
     }
 
-    .trust-business-card p{
-      margin:0 0 12px;
-      color:rgba(232,240,255,.82);
-      line-height:1.7;
+    .brand-copy{
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+      min-width:0;
     }
 
-    .trust-business-note{
+    .brand-copy strong{
+      font-size:1rem;
+      letter-spacing:-.02em;
+      color:var(--text);
+      white-space:nowrap;
+    }
+
+    .brand-copy span{
+      font-size:.79rem;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:420px;
+    }
+
+    .header-nav{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      color:var(--muted-2);
+      font-size:.94rem;
+      font-weight:650;
+    }
+
+    .header-nav a{
+      transition:color .2s ease;
+    }
+
+    .header-nav a:hover{
+      color:var(--primary);
+    }
+
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 20px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:.94rem;
+      line-height:1;
+      border:1px solid transparent;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      color:#ffffff;
+      box-shadow:0 12px 26px rgba(10,108,255,.22);
+    }
+
+    .btn-primary:hover{
+      background:var(--primary-dark);
+      box-shadow:0 14px 34px rgba(10,108,255,.30);
+    }
+
+    .btn-secondary{
+      background:#ffffff;
+      color:var(--text);
+      border-color:var(--line-strong);
+      box-shadow:0 6px 18px rgba(16,24,40,.04);
+    }
+
+    .btn-secondary:hover{
+      border-color:#b8c3d6;
+      box-shadow:0 12px 28px rgba(16,24,40,.08);
+    }
+
+    .hero{
+      padding:82px 0 54px;
+      background:
+        radial-gradient(circle at top left, rgba(10,108,255,.08), transparent 34%),
+        linear-gradient(180deg,#ffffff 0%,#f7faff 100%);
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);
+      gap:56px;
+      align-items:center;
+    }
+
+    .hero-kicker,
+    .section-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 13px;
+      border-radius:999px;
+      background:var(--primary-soft);
+      color:var(--primary-dark);
+      font-size:.82rem;
+      font-weight:800;
+      letter-spacing:.01em;
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:clamp(2.42rem,5vw,4.75rem);
+      line-height:.98;
+      letter-spacing:-.065em;
+      max-width:850px;
+      color:var(--text);
+    }
+
+    .accent{
+      color:var(--primary);
+    }
+
+    .hero-text{
+      margin:24px 0 0;
+      max-width:690px;
+      color:var(--muted-2);
+      line-height:1.78;
+      font-size:1.06rem;
+    }
+
+    .hero-actions{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:30px;
+    }
+
+    .hero-note{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
       margin-top:24px;
     }
 
-    .trust-business-note p{
+    .hero-note span{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:10px 13px;
+      border-radius:999px;
+      background:#ffffff;
+      border:1px solid var(--line);
+      color:var(--muted-2);
+      font-size:.88rem;
+      font-weight:700;
+      box-shadow:0 8px 20px rgba(16,24,40,.04);
+    }
+
+    .hero-stats-bar{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:12px;
+      margin-top:30px;
+    }
+
+    .hero-stat{
+      background:#ffffff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:17px;
+      box-shadow:var(--shadow-sm);
+    }
+
+    .hero-stat strong{
+      display:block;
+      color:var(--text);
+      font-size:1.08rem;
+      margin-bottom:6px;
+    }
+
+    .hero-stat small{
+      color:var(--muted);
+      line-height:1.45;
+      font-size:.82rem;
+    }
+
+    .hero-card{
+      position:relative;
+      border-radius:30px;
+      background:#ffffff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-md);
+      overflow:hidden;
+    }
+
+    .hero-card-top{
+      padding:18px 18px 0;
+    }
+
+    .hero-card-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:14px;
+    }
+
+    .mini{
+      color:var(--muted);
+      font-weight:800;
+      font-size:.82rem;
+    }
+
+    .mini-badge{
+      padding:8px 10px;
+      border-radius:999px;
+      background:var(--primary-soft);
+      color:var(--primary-dark);
+      font-weight:900;
+      font-size:.76rem;
+    }
+
+    .screen-display{
+      position:relative;
+      height:270px;
+      overflow:hidden;
+      border-radius:22px;
+      background:#eef4ff;
+      border:1px solid var(--line);
+    }
+
+    .tech-image{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .screen-display::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.18));
+      pointer-events:none;
+    }
+
+    .hero-card-panels{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      padding:18px;
+    }
+
+    .ui-panel{
+      border:1px solid var(--line);
+      background:#ffffff;
+      border-radius:18px;
+      padding:16px;
+      box-shadow:0 8px 20px rgba(16,24,40,.05);
+    }
+
+    .panel-tag,
+    .project-label,
+    .badge{
+      display:inline-flex;
+      width:max-content;
+      padding:7px 10px;
+      border-radius:999px;
+      background:var(--primary-soft);
+      color:var(--primary-dark);
+      font-weight:900;
+      font-size:.74rem;
+      margin-bottom:10px;
+    }
+
+    .ui-panel strong{
+      display:block;
+      font-size:1rem;
+      letter-spacing:-.02em;
+      margin-bottom:5px;
+    }
+
+    .ui-panel small{
+      display:block;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .trust-strip{
+      padding:22px 0;
+      background:#ffffff;
+      border-bottom:1px solid var(--line);
+    }
+
+    .trust-strip-inner{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+    }
+
+    .trust-strip-inner span{
+      min-height:52px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:0 16px;
+      background:#ffffff;
+      color:var(--muted-2);
+      font-size:.9rem;
+      font-weight:800;
+      box-shadow:0 8px 20px rgba(16,24,40,.04);
+    }
+
+    .section{
+      padding:84px 0;
+      background:#ffffff;
+    }
+
+    .section.alt,
+    .section-contrast{
+      background:var(--bg-soft);
+    }
+
+    .section-head{
+      max-width:790px;
+      margin:0 auto 38px;
+      text-align:center;
+    }
+
+    .section-head h2{
       margin:0;
-      line-height:1.7;
+      font-size:clamp(2rem,3.6vw,3.25rem);
+      line-height:1.06;
+      letter-spacing:-.05em;
+      color:var(--text);
+    }
+
+    .section-head p{
+      margin:18px auto 0;
+      color:var(--muted-2);
+      line-height:1.75;
+      font-size:1rem;
+      max-width:720px;
+    }
+
+    .cards-4{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:20px;
+    }
+
+    .card,
+    .project-card,
+    .impact-card,
+    .process-card,
+    .price-card,
+    .trust-business-card,
+    .important-note,
+    .cta-box{
+      background:#ffffff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-sm);
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .card:hover,
+    .project-card:hover,
+    .impact-card:hover,
+    .process-card:hover,
+    .price-card:hover,
+    .trust-business-card:hover{
+      transform:translateY(-5px);
+      box-shadow:var(--shadow-md);
+      border-color:#c9d7ef;
+    }
+
+    .card{
+      padding:26px;
+    }
+
+    .icon-wrap{
+      width:56px;
+      height:56px;
+      border-radius:16px;
+      background:var(--primary-soft);
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:18px;
+    }
+
+    .icon{
+      font-size:25px;
+      line-height:1;
+    }
+
+    .card h3,
+    .project-card h3,
+    .process-card h3,
+    .price-card h3,
+    .trust-business-card h3{
+      margin:0 0 10px;
+      font-size:1.12rem;
+      line-height:1.24;
+      letter-spacing:-.025em;
+      color:var(--text);
+    }
+
+    .card p,
+    .project-card p,
+    .impact-card p,
+    .process-card p,
+    .price-card .subtitle,
+    .trust-business-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.68;
+      font-size:.95rem;
+    }
+
+    .project-showcase{
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr;
+      gap:20px;
+    }
+
+    .project-card{
+      padding:26px;
+      min-height:210px;
+    }
+
+    .project-card-large{
+      grid-row:span 2;
+      background:
+        linear-gradient(135deg, rgba(10,108,255,.08), rgba(255,255,255,0) 55%),
+        #ffffff;
+    }
+
+    .project-card-large h3{
+      font-size:1.65rem;
+      max-width:430px;
+    }
+
+    .impact-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .impact-card{
+      padding:24px;
+    }
+
+    .impact-card strong{
+      display:block;
+      margin-bottom:9px;
+      font-size:1.05rem;
+      color:var(--text);
+    }
+
+    .process-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .process-card{
+      padding:26px;
+    }
+
+    .step{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--primary);
+      color:#ffffff;
+      font-weight:900;
+      margin-bottom:18px;
+      box-shadow:0 10px 22px rgba(10,108,255,.20);
+    }
+
+    .pricing{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .price-card{
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+
+    .price-card.featured{
+      border:2px solid var(--primary);
+      box-shadow:0 24px 58px rgba(10,108,255,.16);
+      position:relative;
+    }
+
+    .price-list{
+      list-style:none;
+      padding:0;
+      margin:22px 0 24px;
+      display:grid;
+      gap:12px;
+      color:var(--muted-2);
+      font-size:.95rem;
+      line-height:1.35;
+    }
+
+    .price-card .btn{
+      margin-top:auto;
+      width:100%;
+    }
+
+    .important-note{
+      padding:22px 24px;
+      margin-top:24px;
+      background:#f9fafb;
+      color:var(--muted-2);
+      line-height:1.65;
+    }
+
+    .important-note strong{
+      color:var(--text);
+    }
+
+    .trust-business-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:22px;
+      margin-top:30px;
+    }
+
+    .trust-business-card{
+      padding:28px;
+    }
+
+    .trust-business-icon{
+      width:56px;
+      height:56px;
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:25px;
+      background:var(--primary-soft);
+      margin-bottom:18px;
+    }
+
+    .trust-business-card p + p{
+      margin-top:12px;
     }
 
     .trust-business-highlight{
-      margin-top:18px;
+      margin-top:20px;
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:18px;
     }
 
-    @media (max-width:980px){
+    .cta{
+      padding:80px 0;
+      background:#ffffff;
+    }
+
+    .cta-box{
+      padding:54px;
+      text-align:center;
+      background:
+        radial-gradient(circle at top left, rgba(10,108,255,.10), transparent 32%),
+        #f8fbff;
+    }
+
+    .cta-box h2{
+      margin:0 auto;
+      max-width:820px;
+      font-size:clamp(2rem,4vw,3.4rem);
+      line-height:1.06;
+      letter-spacing:-.055em;
+    }
+
+    .cta-box p{
+      margin:18px auto 0;
+      color:var(--muted-2);
+      line-height:1.7;
+      max-width:720px;
+    }
+
+    .cta-actions{
+      margin-top:28px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .footer{
+      padding:34px 0;
+      background:#ffffff;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .footer-copy{
+      line-height:1.6;
+      font-size:.94rem;
+    }
+
+    .footer-copy strong{
+      color:var(--text);
+    }
+
+    .footer-links{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links span{
+      padding:8px 11px;
+      border-radius:999px;
+      background:#f9fafb;
+      border:1px solid var(--line);
+      font-size:.86rem;
+      font-weight:700;
+      color:var(--muted-2);
+    }
+
+    .whatsapp-float{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:60;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px 12px 12px;
+      border-radius:999px;
+      background:#25D366;
+      color:#ffffff;
+      font-weight:900;
+      box-shadow:0 18px 38px rgba(37,211,102,.32);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .whatsapp-float:hover{
+      transform:translateY(-3px);
+      box-shadow:0 22px 46px rgba(37,211,102,.40);
+    }
+
+    .wa-icon{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      background:#ffffff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:7px;
+    }
+
+    .wa-icon img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+
+    .wa-text{
+      font-size:.95rem;
+    }
+
+    .reveal-up{
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .55s ease, transform .55s ease;
+    }
+
+    .reveal-up.is-visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (max-width:1080px){
+      .header-nav{
+        display:none;
+      }
+
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-card{
+        max-width:720px;
+        margin-inline:auto;
+      }
+
+      .cards-4,
+      .impact-grid,
+      .process-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .pricing,
       .trust-business-grid{
         grid-template-columns:1fr;
       }
 
+      .project-showcase{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .project-card-large{
+        grid-row:auto;
+        grid-column:span 2;
+      }
+    }
+
+    @media (max-width:760px){
+      .container{
+        width:min(100% - 28px, var(--container));
+      }
+
+      .header-inner{
+        min-height:72px;
+      }
+
+      .brand-logo-wrap{
+        width:48px;
+        height:48px;
+      }
+
+      .brand-copy span{
+        display:none;
+      }
+
+      .header-actions .btn{
+        min-height:42px;
+        padding:0 14px;
+        font-size:.84rem;
+      }
+
+      .hero{
+        padding:54px 0 38px;
+      }
+
+      .hero h1{
+        font-size:2.55rem;
+        letter-spacing:-.055em;
+      }
+
+      .hero-text{
+        font-size:.98rem;
+      }
+
+      .hero-actions{
+        align-items:stretch;
+      }
+
+      .hero-actions .btn{
+        width:100%;
+      }
+
+      .hero-note span{
+        width:100%;
+        justify-content:center;
+      }
+
+      .hero-stats-bar,
+      .trust-strip-inner,
+      .cards-4,
+      .project-showcase,
+      .impact-grid,
+      .process-grid,
       .trust-business-highlight{
         grid-template-columns:1fr;
+      }
+
+      .project-card-large{
+        grid-column:auto;
+      }
+
+      .screen-display{
+        height:220px;
+      }
+
+      .section{
+        padding:62px 0;
+      }
+
+      .section-head{
+        text-align:left;
+        margin-bottom:28px;
+      }
+
+      .section-head h2{
+        font-size:2.05rem;
+      }
+
+      .cta-box{
+        padding:34px 22px;
+        text-align:left;
+      }
+
+      .cta-actions .btn{
+        width:100%;
+      }
+
+      .footer-inner{
+        align-items:flex-start;
+      }
+
+      .whatsapp-float{
+        right:14px;
+        bottom:14px;
+        padding:10px 13px 10px 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      *,
+      *::before,
+      *::after{
+        scroll-behavior:auto !important;
+        animation:none !important;
+        transition:none !important;
+      }
+
+      .reveal-up{
+        opacity:1 !important;
+        transform:none !important;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="site-bg" aria-hidden="true">
-    <div class="bg-gradient"></div>
-    <div class="bg-grid"></div>
-    <div class="bg-circuits"></div>
-    <div class="bg-orb orb-1"></div>
-    <div class="bg-orb orb-2"></div>
-    <div class="bg-orb orb-3"></div>
-    <div class="floating-window fw-1"></div>
-    <div class="floating-window fw-2"></div>
-    <div class="floating-window fw-3"></div>
-  </div>
-
   <header class="main-header">
     <div class="container header-inner">
 
       <a href="#" class="brand" aria-label="AppFactory Chile">
         <div class="brand-logo-wrap">
-          <img src="logo.png" alt="Logo AppFactory Chile" class="logo-img logo-white" />
+          <img src="logo.png" alt="Logo AppFactory Chile" class="logo-img" />
         </div>
 
         <div class="brand-copy">
@@ -390,8 +1022,8 @@
 
   <main>
 
-    <section class="hero hero-ultra">
-      <div class="container hero-ultra-grid">
+    <section class="hero">
+      <div class="container hero-grid">
 
         <div class="hero-left">
           <div class="hero-kicker">
@@ -400,14 +1032,13 @@
 
           <h1>
             Diseñamos <span class="accent">páginas web, apps y sistemas</span>
-            que mejoran la imagen, el orden y la operación de tu negocio
+            para que tu negocio se vea más profesional y funcione mejor
           </h1>
 
           <p class="hero-text">
-            Creamos productos digitales pensados para mostrar mejor tu empresa, facilitar procesos
-            y entregar una experiencia más profesional a tus clientes. Desarrollamos sitios web,
-            landing pages, aplicaciones móviles, paneles administrativos y soluciones a medida
-            según el alcance real de cada proyecto.
+            Creamos productos digitales pensados para mostrar mejor tu empresa, ordenar procesos
+            y entregar una experiencia clara a tus clientes. Desarrollamos sitios web, landing pages,
+            aplicaciones móviles, paneles administrativos y soluciones a medida según el alcance real de cada proyecto.
           </p>
 
           <div class="hero-actions">
@@ -425,7 +1056,7 @@
             </a>
           </div>
 
-          <div class="hero-note hero-note-inline">
+          <div class="hero-note">
             <span>✔ Sitios web profesionales</span>
             <span>✔ Aplicaciones móviles</span>
             <span>✔ Paneles administrativos</span>
@@ -439,7 +1070,7 @@
             </div>
             <div class="hero-stat">
               <strong>Apps</strong>
-              <small>Experiencias móviles funcionales y escalables</small>
+              <small>Experiencias móviles funcionales</small>
             </div>
             <div class="hero-stat">
               <strong>Admin</strong>
@@ -452,10 +1083,10 @@
           </div>
         </div>
 
-        <div class="hero-right hero-cinematic">
-          <div class="cinematic-stage">
-            <div class="screen-card screen-main">
-              <div class="screen-head">
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-card-top">
+              <div class="hero-card-header">
                 <span class="mini">Experiencia digital</span>
                 <span class="mini-badge">AppFactory Chile</span>
               </div>
@@ -466,58 +1097,35 @@
                   alt="Desarrollo web y aplicaciones"
                   class="tech-image"
                 />
-                <div class="screen-overlay"></div>
-                <div class="screen-glow"></div>
-              </div>
-
-              <div class="screen-grid-panels">
-                <div class="ui-panel panel-app">
-                  <span class="panel-tag">Aplicaciones</span>
-                  <strong>Experiencia móvil moderna</strong>
-                  <small>Interfaces limpias, claras y orientadas al uso real</small>
-                </div>
-
-                <div class="ui-panel panel-web">
-                  <span class="panel-tag">Sitios web</span>
-                  <strong>Presencia comercial más sólida</strong>
-                  <small>Páginas diseñadas para mostrar mejor tu marca y tus servicios</small>
-                </div>
-
-                <div class="ui-panel panel-admin">
-                  <span class="panel-tag">Paneles</span>
-                  <strong>Gestión y control</strong>
-                  <small>Usuarios, reportes, seguimiento y operación interna</small>
-                </div>
               </div>
             </div>
 
-            <div class="floating-ui-card ui-card-1">
-              <span class="floating-label">Web</span>
-              <strong>Sitios corporativos</strong>
-              <small>Más presencia y mejor percepción de marca</small>
-            </div>
+            <div class="hero-card-panels">
+              <div class="ui-panel">
+                <span class="panel-tag">Aplicaciones</span>
+                <strong>Experiencia móvil moderna</strong>
+                <small>Interfaces limpias, claras y orientadas al uso real.</small>
+              </div>
 
-            <div class="floating-ui-card ui-card-2">
-              <span class="floating-label">Apps</span>
-              <strong>Experiencia móvil</strong>
-              <small>Productos digitales útiles y visualmente sólidos</small>
-            </div>
+              <div class="ui-panel">
+                <span class="panel-tag">Sitios web</span>
+                <strong>Presencia comercial más sólida</strong>
+                <small>Páginas diseñadas para mostrar mejor tu marca y tus servicios.</small>
+              </div>
 
-            <div class="floating-ui-card ui-card-3">
-              <span class="floating-label">Operación</span>
-              <strong>Control interno</strong>
-              <small>Procesos mejor estructurados y más ordenados</small>
+              <div class="ui-panel">
+                <span class="panel-tag">Paneles</span>
+                <strong>Gestión y control</strong>
+                <small>Usuarios, reportes, seguimiento y operación interna.</small>
+              </div>
             </div>
-
-            <div class="pulse-ring pulse-1"></div>
-            <div class="pulse-ring pulse-2"></div>
           </div>
         </div>
 
       </div>
     </section>
 
-    <section class="trust-strip trust-strip-strong">
+    <section class="trust-strip">
       <div class="container trust-strip-inner">
         <span>Sitios web a medida</span>
         <span>Aplicaciones de negocio</span>
@@ -537,26 +1145,26 @@
           </p>
         </div>
 
-        <div class="cards cards-4 services-ultra">
-          <article class="card glass-card service-xl">
+        <div class="cards-4">
+          <article class="card">
             <div class="icon-wrap"><div class="icon">🌐</div></div>
             <h3>Páginas web profesionales</h3>
             <p>Sitios corporativos, páginas comerciales, landing pages y presencia digital con mejor estructura.</p>
           </article>
 
-          <article class="card glass-card service-xl">
+          <article class="card">
             <div class="icon-wrap"><div class="icon">📱</div></div>
             <h3>Aplicaciones móviles</h3>
             <p>Apps para clientes, reservas, servicios, ventas, operación interna y experiencias a medida.</p>
           </article>
 
-          <article class="card glass-card service-xl">
+          <article class="card">
             <div class="icon-wrap"><div class="icon">🖥️</div></div>
             <h3>Paneles administrativos</h3>
             <p>Control de usuarios, reportes, módulos internos, seguimiento y gestión de información.</p>
           </article>
 
-          <article class="card glass-card service-xl">
+          <article class="card">
             <div class="icon-wrap"><div class="icon">⚙️</div></div>
             <h3>Soluciones a medida</h3>
             <p>Plataformas, automatización, lógica de negocio, integraciones y flujos personalizados.</p>
@@ -686,13 +1294,7 @@
       </div>
     </section>
 
-    <section id="cotizacion" class="section alt pricing-skano-bg">
-      <div class="pricing-bg" aria-hidden="true">
-        <div class="pricing-orb pricing-orb-1"></div>
-        <div class="pricing-orb pricing-orb-2"></div>
-        <div class="pricing-grid-lines"></div>
-      </div>
-
+    <section id="cotizacion" class="section alt">
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Cotización</div>
@@ -763,9 +1365,6 @@
       </div>
     </section>
 
-    <!-- =========================================================
-         NUEVA SECCIÓN AGREGADA
-    ========================================================== -->
     <section class="section">
       <div class="container">
         <div class="section-head">
@@ -780,7 +1379,7 @@
 
         <div class="trust-business-grid">
 
-          <article class="trust-business-card glass-card">
+          <article class="trust-business-card">
             <div class="trust-business-icon">🤝</div>
             <h3>Confidencialidad y resguardo de la información</h3>
             <p>
@@ -789,12 +1388,11 @@
             </p>
             <p>
               Cuando el caso lo requiera, podrá establecerse un <strong>acuerdo de confidencialidad entre las partes</strong>,
-              con el fin de dar mayor seguridad al proceso y permitir que el cliente comparta su idea
-              con la tranquilidad de que no será divulgada ni utilizada fuera del marco del trabajo acordado.
+              con el fin de dar mayor seguridad al proceso.
             </p>
           </article>
 
-          <article class="trust-business-card glass-card">
+          <article class="trust-business-card">
             <div class="trust-business-icon">💳</div>
             <h3>Forma de pago y entrega del desarrollo</h3>
             <p>
@@ -802,51 +1400,46 @@
               para comenzar el proyecto y <strong>50% restante al cierre</strong>.
             </p>
             <p>
-              Este esquema permite ordenar el proceso de diseño, desarrollo, estructura, revisiones
-              y avances del trabajo. La <strong>entrega completa del proyecto</strong>, incluyendo archivos,
-              accesos, publicación final o liberación integral del desarrollo, se realiza una vez recibido
-              el pago total pactado entre las partes.
+              La entrega completa del proyecto, incluyendo archivos, accesos, publicación final o liberación integral,
+              se realiza una vez recibido el pago total pactado entre las partes.
             </p>
           </article>
 
-          <article class="trust-business-card glass-card">
+          <article class="trust-business-card">
             <div class="trust-business-icon">🚀</div>
             <h3>Modalidad asociativa para ideas con poco capital</h3>
             <p>
-              Cuando una idea de negocio tiene potencial, pero el cliente aún no cuenta con el capital suficiente
-              para financiar el desarrollo completo bajo una modalidad tradicional, podemos evaluar un
-              <strong>modelo asociativo</strong>.
+              Cuando una idea de negocio tiene potencial, pero el cliente aún no cuenta con el capital suficiente,
+              podemos evaluar un <strong>modelo asociativo</strong>.
             </p>
             <p>
               En ese esquema, nosotros desarrollamos, diseñamos y estructuramos la solución digital, mientras
-              el cliente cubre los gastos necesarios para poner el proyecto en funcionamiento, tales como
-              publicación, registro de marca, trámites ante <strong>INAPI</strong> u otros costos operativos relacionados.
+              el cliente cubre gastos necesarios como publicación, registro de marca, trámites ante <strong>INAPI</strong>
+              u otros costos operativos.
             </p>
           </article>
 
         </div>
 
         <div class="trust-business-highlight">
-          <div class="important-note trust-business-note">
+          <div class="important-note">
             <p>
               <strong>Distribución referencial:</strong>
               en proyectos aprobados bajo modalidad asociativa, puede establecerse una división de utilidades de
-              <strong>60% para el cliente y 40% para AppFactory Chile</strong>, según evaluación previa,
-              alcance real, viabilidad y condiciones formales definidas por escrito.
+              <strong>60% para el cliente y 40% para AppFactory Chile</strong>, según evaluación previa y condiciones formales definidas por escrito.
             </p>
           </div>
 
-          <div class="important-note trust-business-note">
+          <div class="important-note">
             <p>
               <strong>Estructura mandante:</strong>
               la dirección, respaldo y marco comercial del desarrollo se mantiene bajo
-              <strong>J-DECH Comercializadora</strong> como empresa mandante, dejando por escrito las condiciones,
-              responsabilidades y alcances antes de iniciar cualquier etapa formal del proyecto.
+              <strong>J-DECH Comercializadora</strong> como empresa mandante.
             </p>
           </div>
         </div>
 
-        <div class="important-note trust-business-note">
+        <div class="important-note">
           <p>
             <strong>Importante:</strong>
             la modalidad asociativa no aplica automáticamente a todos los casos. Cada idea se evalúa
@@ -857,7 +1450,7 @@
       </div>
     </section>
 
-    <section class="cta cta-strong">
+    <section class="cta">
       <div class="container">
         <div class="cta-box">
           <div class="section-kicker">Contacto</div>
@@ -907,18 +1500,11 @@
   <script>
     (function () {
       const revealTargets = document.querySelectorAll(
-        '.hero-stat, .ui-panel, .floating-ui-card, .trust-strip-inner span, .glass-card, .project-card, .impact-card, .process-card, .price-card, .important-note, .cta-box'
+        '.hero-stat, .ui-panel, .trust-strip-inner span, .card, .project-card, .impact-card, .process-card, .price-card, .trust-business-card, .important-note, .cta-box'
       );
 
-      revealTargets.forEach((el, index) => {
+      revealTargets.forEach((el) => {
         el.classList.add('reveal-up');
-        el.classList.add('reveal-delay-' + ((index % 6) + 1));
-
-        if (window.innerWidth > 980) {
-          if (index % 3 === 0) el.classList.add('float-soft-a');
-          if (index % 3 === 1) el.classList.add('float-soft-b');
-          if (index % 3 === 2) el.classList.add('float-soft-c');
-        }
       });
 
       const observer = new IntersectionObserver((entries) => {
